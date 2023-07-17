@@ -43,16 +43,16 @@ void dosth(int l){
 }
 
 // pass by reference 
-void dosth(int &l){ // just add "&" symbol;
-  cout<<l<<endl;
-  l +=10;
-  cout<<l<<endl;
-  l +=10;
-  cout<<l<<endl;
-  l +=10;
-  cout<<l<<endl;
-  l+=10;
-}
+// void dosth(int &l){ // just add "&" symbol;
+//   cout<<l<<endl;
+//   l +=10;
+//   cout<<l<<endl;
+//   l +=10;
+//   cout<<l<<endl;
+//   l +=10;
+//   cout<<l<<endl;
+//   l+=10;
+// }
 int main (){
     printname();
     string name;
