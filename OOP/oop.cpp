@@ -1,3 +1,17 @@
+/*OOps is a programming technique in which things revolve around objecs and we perfrom all the operations on objects
+an object is something which have
+1. property - like a dog have  4legs, 2 eyes etc
+2. behaviour/functions - like a dog can bark , he can eat and sleep etc.
+
+why we need ooops?
+1. it makes the code more readable
+2. makes the code more resuable 
+3. the code is now more easier to understand and maintain.
+
+now further in the code we will be looking at the syntax of performing various things and some more concepts related to that     */
+
+
+
 #include <bits/stdc++.h>
 using namespace std;
 int main (){
