@@ -3,7 +3,7 @@ an object is something which have
 1. property - like a dog have  4legs, 2 eyes etc
 2. behaviour/functions - like a dog can bark , he can eat and sleep etc.
 
-why we need ooops?
+why we need oops?
 1. it makes the code more readable
 2. makes the code more resuable 
 3. the code is now more easier to understand and maintain.
@@ -88,12 +88,12 @@ int main (){
 }
 // what is padding and greedy alignment
 
-//  access modifier - they define the scope of your access
+//  Access modifier - they define the scope of your access
 // if a state or behavior is public then we can access it inside the class and outside the class both
 // 1. public
 // 2. Private - if a state or behavior is private marked then we can only access it inside the class only and by default all the members are private marked
 // members -  states and behaviour
-// 3. Protected (will do in the nex class)
+// 3. Protected (will do in the next class)
 
 // so to public mark the access modifier we have to use the keyword public
 
@@ -116,7 +116,7 @@ Before
     };
 
 
-AFter 
+After 
 
 
     class animal{
@@ -138,3 +138,9 @@ AFter
 
 
 */
+// class is a format and object is the application of the class
+// class is used to define the user defined datatype and using that class or you can say on the basis of this class you create objects 
+
+
+// homework
+// learn about padding and greedy alignment 
