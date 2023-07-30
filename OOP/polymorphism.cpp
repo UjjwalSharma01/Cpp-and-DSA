@@ -2,7 +2,7 @@
 **************************************** CONCEPTS ********************************************
 
 
-what is POLYMORPHISM?
+What is POLYMORPHISM?
 POLY - many
 MORPH - form
 
@@ -42,13 +42,13 @@ return_type <operator keyword> (operator sign){
     function
 }
  
-USES
+****************** USES ****************************
 
 used very rarely
 
 for example
 
-// perform this in homework and also try to overload ">>"
+// perform this in homework and also try to overload ">>" -> Whenever you use this function it should perform the print function
 if we have some sort of values in our class so instead of creating a "PRINT" function to print all the members of the class we will overload the "<<"
 function such that by using this sign in this way "cout<<obj" we would be able to print all the members of the class
 
@@ -57,6 +57,11 @@ RELATED TO THE EXECUTION OM HOW THE OPERATOR WORKS, IN THE PROGRAM SPECIALLY IN 
 A+B -> here a is the current object and "+" ki definiton with respect to A dekhi jaegi, jisme B as a input hoga, it is same as
 a.add(b); function call add in which b is the input parameter
 
+
+
+
+
+**************************************************************************************************************************************************************************************************************************************************
 
 
     RUNTIME POLYMORPHISM / DYMANIC POLYMORPHISM
@@ -69,6 +74,11 @@ a.add(b); function call add in which b is the input parameter
     -> CHILD CLASS - DOG - since it is inherited from the animal class itself so it also contains the function "SPEAK" but here we want the function to be more specific kyuki kutta 
     bolta nahi h it barks so when we will DEFINE or CUSTOMIZE the function by ourself after the inheritance, then this concept is known as FUNCTION OVER-RIDING
 
+    one line - to get the custom behavior of the inherited function, by explicitly defining it
+    
+
+    EXECUTION
+    check screenshot
 
     AFTER EXECUTION OF OVER-RIDING
     QUESTION- 
@@ -79,7 +89,7 @@ a.add(b); function call add in which b is the input parameter
     -> other case would be apko kuch cheeze exact same cheez chahiye but kuch cheezo according to the usecase apko change krni h toh you have full control over it, and you can OVER-RIDE it
 
 
-
+    *******************************************************************************************************************************************************************************************************************************************
     UPCASTING 
     whenever you define or you dynamically define a variable
     using parent class as the pointer and the child class as the variable then it is known as UPCASTING
@@ -89,14 +99,21 @@ a.add(b); function call add in which b is the input parameter
 
     this will print the function of the parent
 
+    EXECUTION IS GIVEN BELOW
 
+    DOWNCASTING
+    whenever you do downcasting or upcasting without using the virtual keyword, hamesha pointer ka method call hoga and agr virtual keyword apply kia h then object ka function call hoga 
 
+********************************************************************************************************** MOST IMPORTANT THING *******************************************************************************************************************************************
 
+    patterns
 
+    parent* a = new parent();
+    parent* a = new child();
+    child* a = new child();
+    child* a = (child*)new parent();
 
-
-
-
+    pointer type(left side) ke basis pe by default method ya function call hoga and and agr main chahta hu type of object(right hand side of the pattern) ke basis pe pick ho then i need to use virtual keyword in that method
 
 
 */
@@ -135,7 +152,7 @@ class maths{
 
 
 // operator overloading
-class para{
+class para{ // para = parameter
     public:
     int val;
     void operator+(para& obj2){
@@ -149,7 +166,7 @@ class para{
 /*************************************************** OVER-RIDING***************************************/
 class animal {
     public:
-    void speak(){
+    virtual void speak(){
         cout<<"speaking"<<endl;
     }
 };
@@ -161,6 +178,8 @@ class dog:public animal{
         cout<<"Barking"<<endl;
     }
 };
+
+
 
 
 
@@ -195,6 +214,40 @@ int main(){
     animal* b = new dog();
     b->speak();
     
+
+
+
+    // using dynamic memory allocation
+    // animal* f =new animal();
+    // b->speak();
+
+    // dog *f = new dog()
+    // f->speak();
+
+
+
+
+    // UPCASTING -> important
+    // animal *f =new dog; // when you are using parent class pointer on the child class
+    // f->speak();
+
+// you need to mark the function in the parent class as "virtual" to get the output as barking otherwise the function called will be of parent class and if i want ki run time pe decide ho konsa function call hona h then we have 
+// to mark our parent class function as "virtual" 
+
+
+    // DOWNCASTING
+
+    // dog *f = new animal; // won't run
+    // f->speak();
+
+
+    // to make it work
+
+    dog *f = (dog* )new animal; // won't run
+    f->speak();
+
+    // now it will work
+
     return 0;
 }
 
@@ -203,4 +256,13 @@ int main(){
 HOMEWORK
 
 -> kon konse operators ko overload kr skte ho?
+*/
+/*
+flow,
+types of polymorphism
+function overloading
+operator overloading
+
+-> run time polymorphism - dynamic binding
+
 */

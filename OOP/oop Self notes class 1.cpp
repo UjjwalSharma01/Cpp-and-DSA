@@ -1,9 +1,10 @@
-/*OOPs is a programming technique in which things revolve around objecs and we perfrom all the operations on objects
+/*OOPs is a programming technique in which things revolve around objects and we perfrom all the operations on objects
+
 an object is something which have
 1. property - like a dog have  4legs, 2 eyes etc
 2. behaviour/functions - like a dog can bark , he can eat and sleep etc.
 
-Why we need oops?
+Why we need oop?
 1. it makes the code more readable
 2. makes the code more resuable 
 3. the code is now more easier to understand and maintain.
@@ -114,9 +115,9 @@ int main (){
             cout<<"you just called the destruction for you"<<endl;
         }
         // all the statically defined variables will call this automatically
+        
 
-
-
+        
 
         // behaviour/functions/methods
         void eat (){
@@ -243,7 +244,7 @@ int main (){
 
 
 
-/***********************************************************888
+/****************************************************************************************************************************************************
  When we want to access a private member outside of the class then we have to use the concept of "getters and setters"
  these are basically the functions 
  getter -> used to fetch the property of the class
@@ -252,7 +253,7 @@ int main (){
 
 
 */
-
+ 
 
 /*
 Before 
