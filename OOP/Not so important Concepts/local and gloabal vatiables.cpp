@@ -12,19 +12,6 @@ Local Variables
 -> accessible inside that function scope only
 -> scoped
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 */
 
 
