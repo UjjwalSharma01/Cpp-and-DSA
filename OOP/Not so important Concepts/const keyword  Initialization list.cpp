@@ -142,7 +142,7 @@ class abc{
         return *y;
     }
     void sety(int value){
-        *y=value;
+        this->y=&value;
     }
 };
 using namespace std;
