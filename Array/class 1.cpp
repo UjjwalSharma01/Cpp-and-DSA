@@ -344,3 +344,4 @@ int main() {
 
 
 // homework - > use of memset function and can we apply it to change the values in the array - > how you initiliase aaray using this memset function
+// dry run every code 5 times -> find other ways to swap using "+ , -" and XOR
