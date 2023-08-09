@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/ujjwa/Desktop/Cpp-and-DSA/Array",
-      "program": "c:/Users/ujjwa/Desktop/Cpp-and-DSA/Array/build/Debug/outDebug",
+      "cwd": "c:/Users/ujjwa/Desktop/Cpp-and-DSA/Array/Class notes",
+      "program": "c:/Users/ujjwa/Desktop/Cpp-and-DSA/Array/Class notes/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

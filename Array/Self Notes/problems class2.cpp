@@ -12,6 +12,8 @@ arr={1,2,4,2,1,3,6,5,5,6,4} - > important interview question, amazon flipkart an
  EXAMPLE- > 2^2 = 0
  2^2^3 = 1
 
+ if we do
+
 */
 
 
@@ -20,7 +22,33 @@ arr={1,2,4,2,1,3,6,5,5,6,4} - > important interview question, amazon flipkart an
 
 #include <bits/stdc++.h>
 using namespace std;
-int main(){
+void print(vector<int> arr){
+    for (int i =0;i<arr.size();i++){
+        cout<<arr[i]<<" ";
+    }
+}
+int uniquelement(vector<int> arr){
+    int ans =0;
+    for(int i=0;i<arr.size();i++){
+        ans = ans ^ arr[i];
 
+    }
+    return ans; 
+}
+int main(){
+    int n;
+    cout<<"Enter the number of elements to be entered in the array"<<endl;
+    cin>>n;
+    vector <int> arr(n);
+    cout<<"enter elements"<<endl;
+    for(int i=0;i<arr.size();i++){
+        cin>>arr[i];
+    }
+    int element;
+    element = uniquelement(arr);
+    cout<<"The unique element is: "<<element<<endl;
+    cout<<endl;
+    cout<<"The array is"<<endl;
+    print(arr);
     return 0;
 }
