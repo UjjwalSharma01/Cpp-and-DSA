@@ -22,10 +22,16 @@ arr={1,2,4,2,1,3,6,5,5,6,4} - > important interview question, amazon flipkart an
 
 #include <bits/stdc++.h>
 using namespace std;
-void print(vector<int> arr){
-    for (int i =0;i<arr.size();i++){
-        cout<<arr[i]<<" ";
+void enter(vector<int> arr){
+    for(int i=0;i<arr.size();i++){
+        cin>>arr[i];
     }
+}
+void print(vector<int> arr){
+    for(auto i:arr) {
+		cout << i << " ";
+	}
+	cout << endl;
 }
 int uniquelement(vector<int> arr){
     int ans =0;
@@ -39,16 +45,33 @@ int main(){
     int n;
     cout<<"Enter the number of elements to be entered in the array"<<endl;
     cin>>n;
-    vector <int> arr(n);
-    cout<<"enter elements"<<endl;
-    for(int i=0;i<arr.size();i++){
-        cin>>arr[i];
-    }
-    int element;
-    element = uniquelement(arr);
-    cout<<"The unique element is: "<<element<<endl;
-    cout<<endl;
-    cout<<"The array is"<<endl;
-    print(arr);
+    // vector <int> arr(n);
+    // cout<<"enter elements"<<endl;
+    // for(int i=0;i<arr.size();i++){
+    //     cin>>arr[i];
+    // }
+    // int element;
+    // element = uniquelement(arr);
+    // cout<<"The unique element is: "<<element<<endl;
+    // cout<<endl;
+    // cout<<"The array is"<<endl;
+    // print(arr);
+
+    // union of the array
+    vector<int> arr1(n);
+    vector<int> arr2(n);
+    // Entering the values into array 1
+    cout<<"Entering the values into array 1"<<endl;
+    enter(arr1);
+    // entering values into array 2
+    cout<<"Entering the values into array 2"<<endl;
+    enter(arr2);
+    // printing the array 1
+    cout<<"printing the array 1"<<endl;
+    print(arr1);
+    // printing the array 2
+    cout<<"printing the array 2"<<endl;
+    print(arr2);
+    
     return 0;
 }
