@@ -86,7 +86,7 @@ int main() {
     // for(int i=0;i<5;i++){
     //     cout<<2*arr1[i]<<" ";
     // }
-    cout<<endl; 
+    // cout<<endl; 
     // an array contains values as - > {1,3,5,7,9} -> change all of them to one
     // int arr2[5] = {1,3,5,7,9};
     // cout<<"changing values"<<endl;
@@ -289,10 +289,10 @@ int main() {
 
     // REVERSE AN ARRAY
     // self code - > working fine - > used a third variable for swapping
-    int arr[] = {1,2,3,4,5,6,7,8,9,10};
-    int size = 10;
-    int start = 0;
-    int end = size-1;
+    // int arr[] = {1,2,3,4,5,6,7,8,9,10};
+    // int size = 10;
+    // int start = 0;
+    // int end = size-1;
     // for(int i=0;i<size;i++){
     //     if(start > end){
     //         int k;
@@ -322,15 +322,14 @@ int main() {
 //    using while loop
     
 
-    while(start>=end){
-        // step 1
-        swap(arr[start],arr[end]);
-        // step 2 
-        start++;
-        //step 3
-        end -- ;
-    }
-
+    // while(start>=end){
+    //     // step 1
+    //     swap(arr[start],arr[end]);
+    //     // step 2 
+    //     start++;
+    //     //step 3
+    //     end -- ;
+    // }
 
 
 
