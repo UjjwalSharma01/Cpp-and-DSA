@@ -29,7 +29,7 @@ SIGNIFICANCE OF INDEX 0
 when youu try to access the memory location which doesn't comes under your array then either it will return a garbage value or will a segmentation error - > because you are trying to access the memory which is not yours
 
 
-// INITLISATION 
+// INITIALISATION 
 1. WITH 0
 
     // agr hamne array bas initliaze kia and uske andar koi value nahi dali -> print kra liya then it will give garbage values as output and agr khali values ko zero se initialise krna h toh atlease ek value toh dalni pdegi
