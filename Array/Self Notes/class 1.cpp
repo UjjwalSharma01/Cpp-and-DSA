@@ -17,7 +17,49 @@ when we have to operate with a very large number of data - > we can't create ind
 - > suppose you are having two continous memoery block of 16 bytes and 24 bytes in your memory but you want to create an array of 10 intger elements - > now the sspace is not available in continous manner for this operation
 - > although 16+24 =40 you have the space but it's in descrete manner - >  it should be in continous manner - > so memory wastage hui h yha pe
 
+IMP
+- > Default initialization is with 0
+- > indexing starts from 0 till n-1 where n is the size of the array
 
+SIGNIFICANCE OF INDEX 0
+- > whenever we write arr[0] it is interpreted/representedf as arr[0X4] - > arr - > and then is address pe jo value hoti h usko print kra dete h , we are basically navigating the addresses using these indexes
+- > arr[4] - > value at arr+ [4X4] - > value at base address + 16
+
+
+when youu try to access the memory location which doesn't comes under your array then either it will return a garbage value or will a segmentation error - > because you are trying to access the memory which is not yours
+
+
+// INITIALISATION 
+1. WITH 0
+
+    // agr hamne array bas initliaze kia and uske andar koi value nahi dali -> print kra liya then it will give garbage values as output and agr khali values ko zero se initialise krna h toh atlease ek value toh dalni pdegi
+    // EX ->
+    // int arr[10] = {0}; //THE WHOLE ARRAY IS NOW INTIALISED BY 0
+    // for(int i=0;i<10;i++){
+    //     cout<<arr[i]<<" ";
+    // }
+    // cout<<endl;
+
+
+2. WITH DIFFERENT VALUES - > USE memset function
+
+
+- > ARRAY AND FUNCTIONS
+
+
+    ARRAY IS ALWAYS PASSED BY REFERENCE 
+    make this your habit, whenever you are passing an array to a function then uske size ko bhi paas krna pdega
+
+    
+MAXIMUM NUMBER IN AN ARRAY
+     SOME BEST PRACTICES TO FOLLOW
+    - > always initialise maximum number with = INT_MIN and minumum number with INT_MAX
+
+    - > this way we are intialising these variables with the maximum and the minumum value ever possible in c++
+    
+ 
+
+    DRY RUN  > WE WILL CHECK EACH VALUE OF THE ARAAY AND SEE IF IT'S BIGGER OR SMALLER THAN THE MIN OR MAX VALUE , IT YES THEN WE WILL SWAP THAT VALUE WITH THE ORIGINAL VALUE OF BOTH VARIABLES
 */
 
 
@@ -52,7 +94,7 @@ int main() {
 
 
  
-    // entering values
+    // ENTERING VALUES
 
 
 
@@ -61,7 +103,7 @@ int main() {
     // }
     // printing an array - > using index  - > starts with zero
     // cout<<arr[1]<<endl;
-    // -> significance of 0th index - > arr +0 X 4 -> arr+0 -> iska matlab iss address pr jo value pdi h usko return kro
+    // -> significance of 0th index - > arr + [0 X 4] -> arr+0 -> iska matlab iss address pr jo value pdi h usko return kro
     // arr + index * datatype
     // -> agr array ke size ke bahar ki memory access krna chah rhe h toh either it will segementation error or a garbage value - > it's compiler dependent
     // for (int i =0;i<5;i++){
@@ -69,8 +111,27 @@ int main() {
     // }
 
 
+    // QUESTION
 
+    // Replacing all the values of an array by 1
+    // int arr[]= {10,20,30,540,13,13,14,1} ;
+    // int size = 8;
+    // cout<<"Size of the array is :"<<size<<endl;
+    // cout<<"Array before replacement"<<endl;
+    // for(int i=0;i<size;i++){
+    //     cout<<arr[i]<<" ";
+    // }
+    // cout<<endl;
     
+    // for(int i=0;i<size;i++){
+    //     arr[i] = 1;
+    // }
+    // cout<<"Array after replacement"<<endl;
+    // // after replacement
+    // for(int i=0;i<size;i++){
+    //     cout<<arr[i]<<" ";
+    // }
+    // cout<<endl;
 
 
 
@@ -98,7 +159,17 @@ int main() {
     // }
     // cout<<endl; 
 
+
+
+
     /* agr hamne array bas initliaze kia and uske andar koi value nahi dali -> print kra liya then it will give garbage values as output and agr khali values ko zero se initialise krna h toh atlease ek value toh dalni pdegi*/
+// EX ->
+    // int arr[10] = {0}; //THE WHOLE ARRAY IS NOW INTIALISED BY 0
+    // for(int i=0;i<10;i++){
+    //     cout<<arr[i]<<" ";
+    // }
+    // cout<<endl;
+
 
 
 
@@ -110,7 +181,7 @@ int main() {
 
 
     // ARRAY IS ALWAYS PASSED BY REFERENCE 
-    // male this your habit, whenever you are passing an array to a function then uske size ko bhi paas krna pdega
+    // make this your habit, whenever you are passing an array to a function then uske size ko bhi paas krna pdega
     // int arr[] = {2,5};
     // int size = 2;
     // printarray(arr,size);
@@ -131,7 +202,7 @@ int main() {
     // int key;
     // cout<<"Enter the number to seach "<<endl;
     // cin>>key;
-    // // search(arr, size, key);
+    // search(arr, size, key);
     // if(search(arr,size,key)){ // if true the function will return 1 else 0
     //     cout<<"FOUND"<<endl;
     // }
