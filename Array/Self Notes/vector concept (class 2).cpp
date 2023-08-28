@@ -4,6 +4,7 @@ INITIAL CONCEPT
 - > Vector - > part of stl, it behaves like an array but array itself is static in nature, whereas vectoe is dynamic in nature - >  "it can increase or decrease it's size"
 default size - > 0
 jab size full ho jata h then it doubles itself - > memory loss is there
+
 optimal solution - > best solution for the given problem according to it's time and space complexity
 Brute-force solution - >  simple solution to a particular problem
 
