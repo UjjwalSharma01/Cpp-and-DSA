@@ -1,4 +1,4 @@
-# Class 2
+# Encapsulation, Inheritance and Polymorphism | Basic intro of 4 pillars of OOPs
 
 _Note_- apart from code snippets for actual execution visit the code folder  
 
@@ -105,14 +105,24 @@ class child: <mode of inheritance> parent;
 ### MODE OF INHERTIANCE
 - public 
 - private
--  protected
+- protected
 
 
 ### Chart for mode of inheritance 
 
 ![Chart](https://github.com/UjjwalSharma01/Cpp-and-DSA/blob/main/Images/Screenshot%20(1783).png)
 
+### protected class - 
 
+behaves sames as the private class in all the cases but it can be accessed within the child class
+
+
+difference between protected and private 
+
+private ko inherit kroge toh inherit nahi hoga, protected ko kroge toh ho jaega
+
+
+private will be inaccesible
 ### TYPE OF INHERITANCE
 1. Single
 2. Multi-level
@@ -187,3 +197,125 @@ the levels as per your choic
     };
 
 ```
+
+![Concept](https://github.com/UjjwalSharma01/Cpp-and-DSA/blob/main/Images/Screenshot%20(1785).png)
+
+### MULTIPLE INHERITANCE
+when there are multiple parent classes and a single child class is present and the child inherts the porperties from the parent, then this is known as multiple inheritance
+
+```cpp
+
+    MUTLTIPE INHERITANCE
+    class a {
+        public:
+        int physics;
+    };
+    class b{
+        public:
+        int chemistry;
+    };
+
+    class c: public a,public b{
+        public:
+        int maths;
+    };
+
+```
+object creation of multiple inheritance
+```cpp
+// object creation of multiple inhertiance
+    c obj;
+    cout<<obj.physics<<" "<<obj.chemistry<<" "<<obj.maths<<endl; //it will have all the properties of the parent class
+```
+
+### DIAMOND PROBLEM / INHERITANCE ABIGUITY PROBLEM (VERY IMPORTANT)
+if two classes have same members in this case let's say chemistry is present in both classes A and B, and the compiler will get confused konsa print krna h so in this case we use scope resolution operator  __"::"__
+    
+ ```cpp
+   // Diamond problem
+
+        class a {
+        public:
+        int physics;
+        int chemistry;
+    };
+    class b{
+        public:
+        int chemistry;
+    };
+
+    class c: public a,public b{
+        public:
+        int maths;
+    };
+    c obj;
+    // scope resolution operator
+    obj.a::chemistry;
+    obj.b::chemistry;
+
+    out<<obj.physics<<" "<<obj.a::chemistry<<" "<<obj.maths<<endl;
+    // hamne define krdia ki A class wali chemistry ki calue chahiye mark this as very important
+```
+
+SCOPE RESOLUTION OPERATOR  
+WE WILL DEFINE THE CLASS JAHA SE VALUE UTHANI H
+
+### HIERARCHICAL INHERITANCE
+when there is a single parent class and multiple child class is present and the child inherts the porperties from the parent, then this is known as hierarchical inheritance
+
+```cpp
+// -> HEIRARCHIAL INHERITANCE - 1 parent 2 child
+    class car {
+        public:
+        int age;
+        int weight;
+        string name;
+
+        void speed() {
+            cout<<"bhaago"<<endl;
+        }
+
+    };
+    class scorpio:public car{
+
+    };
+    class legender:public car{
+
+    };
+```
+
+### Polymorphism
+
+What is POLYMORPHISM?  
+POLY - many  
+MORPH - forms  
+
+so basically polymorphism means-> existing in many forms  
+you can create two functions of same name using this
+
+
+
+### TYPES OF POLYMORPHISM
+1. Compile-time Polymorphism
+2. Run-time Polymorphism
+
+
+### Compile-time Polymorphism
+
+based on two concepts
+- function overloading
+- operator overloading
+
+
+
+### FUNCTION OVERLOADING
+when we make the function exist in multiple forms by changing it's signature each time,
+how we are changing the signature 
+- either by changing the number of parameters or by changing the type of parameters
+-  changing the return type doesn't change the signature 
+
+
+### OPERATOR OVERLOADING
+We use "+" symbol to add two numbers we can use this also to subtract two numbers -> this concept is known as operator overloading
+-> jo uss operator ka kaam nahi bhi tha vo bhi hamne usse kralia
+-> different forms of a single operator is defined in this

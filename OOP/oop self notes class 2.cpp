@@ -105,7 +105,7 @@ dono parent class ki properties aajaegi
 
 
 
-DIAMOND PROBLEM / INHERITANCE ABIHUITY PROBLEM
+DIAMOND PROBLEM / INHERITANCE ABIGUITY PROBLEM
 if two classes have same members in this case let's say chemistry is present in both classes A and B, and the compiler will get confused konsa print krna h so in this case we use scope resolution operator
 SCOPE RESOLUTION OPERATOR
 WE WILL DEFINE THE CLASS JAHA SE VALUE UTHANI H
