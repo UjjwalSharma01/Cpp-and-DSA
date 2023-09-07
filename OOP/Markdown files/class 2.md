@@ -109,7 +109,9 @@ class child: <mode of inheritance> parent;
 
 
 ### Chart for mode of inheritance 
-<img src = "https://github.com/UjjwalSharma01/Cpp-and-DSA/blob/main/Images/Screenshot%20(1783).png"/>
+
+![Chart](https://github.com/UjjwalSharma01/Cpp-and-DSA/blob/main/Images/Screenshot%20(1783).png)
+
 
 ### TYPE OF INHERITANCE
 1. Single
