@@ -1,7 +1,7 @@
 /*OOPs is a programming technique in which things revolve around objects and we perfrom all the operations on objects
 
 an object is something which have
-1. property - like a dog have  4legs, 2 eyes etc
+1. property/state - like a dog have  4legs, 2 eyes etc
 2. behaviour/functions - like a dog can bark , he can eat and sleep etc.
 
 Why we need oop?
@@ -410,7 +410,7 @@ use to free the memory, constuctor ne memory li and allot kri, ye us memory ko f
 in static memory allocation -  called automatically
 in dynamic memory allocation - you have to call manually
 
-wo't have any 
+won't have any 
 return type and input parameter
 
 then what's the difference between the code of constuctor and destuctor 
