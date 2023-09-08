@@ -120,7 +120,7 @@ float* a = new float;
 int** arr = new int*[n]; //-> hamne ek array bnaya h int* type ka jiske andr n number of block and each block contains int* type of data, right side ke upr ek pointer lgana h toh ek star faltu lgega left side (pointer to pointer - concept)
 
 
-// -> NOW WE WILL RUN A FOR LOOP
+// -> NOW WE WILL RUN A FOR LOOP -> revise this 3-4 times
 
 column
 for(int i=0;i<h;i++){
@@ -150,3 +150,15 @@ delete[]arr
 ```
 
 ![2d array](https://github.com/UjjwalSharma01/Cpp-and-DSA/blob/main/Images/Screenshot%20(1797).png)
+---
+![2d array](https://github.com/UjjwalSharma01/Cpp-and-DSA/blob/main/Images/Screenshot%20(1799).png)
+---
+![2d array](https://github.com/UjjwalSharma01/Cpp-and-DSA/blob/main/Images/Screenshot%20(1800).png)
+---
+
+### why we use delete[]arr and not delete arr
+because we have to delete the whole array and not just the first block of the array
+### Creating a 2D array using vector
+```cpp
+vector<vector<int>> arr(n,vector<int>(m,0)); // -> n rows and m columns and 0 is the default value
+```
