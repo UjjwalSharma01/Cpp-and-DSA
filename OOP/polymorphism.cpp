@@ -243,7 +243,7 @@ int main(){
 
     // to make it work
 
-    dog *f = (dog* )new animal; // won't run
+    dog *f = (dog* )new animal;
     f->speak();
 
     // now it will work

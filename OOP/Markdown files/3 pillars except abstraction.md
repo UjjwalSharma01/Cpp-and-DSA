@@ -45,7 +45,7 @@ abstraction is->  upr upr se btana, kisi bhi cheez ke bareme upr upr se baat krn
 _just for info don't stress much on it right now_
 
 
-## implementation of encapsulation
+## Implementation of encapsulation
 ```cpp
 // ENCAPSULATION EXAMPLE
 
@@ -68,7 +68,7 @@ _just for info don't stress much on it right now_
     };
 ```
 
-### INHERITANCE
+### Inheritance
 why we use it? -> to increase the reusability of the code  
 just like in humans, child inherit some properties from their parents, in the same manner there are two things in the oops
 - Base class/super class/Parent class
@@ -102,7 +102,7 @@ class child: <mode of inheritance> parent;
 
 ```
 
-### MODE OF INHERTIANCE
+### Mode of inheritance
 - public 
 - private
 - protected
@@ -112,7 +112,7 @@ class child: <mode of inheritance> parent;
 
 ![Chart](https://github.com/UjjwalSharma01/Cpp-and-DSA/blob/main/Images/Screenshot%20(1783).png)
 
-### protected class - 
+### Protected class - 
 
 behaves sames as the private class in all the cases but it can be accessed within the child class
 
@@ -123,7 +123,7 @@ private ko inherit kroge toh inherit nahi hoga, protected ko kroge toh ho jaega
 
 
 private will be inaccesible
-### TYPE OF INHERITANCE
+### Types of inheritance
 1. Single
 2. Multi-level
 3. Multiple
@@ -131,7 +131,7 @@ private will be inaccesible
 5. Hybrid
 
 
-## SINGLE INHERITANCE
+## Single inheritance 
 when there is a single parent class and a single child class is present and the child inherts the porperties from the parent, then this is known as single inheritance
 
 there is always a _"IS A"_ relationship in single inheritance 
@@ -162,7 +162,7 @@ for example - RANGE ROVER is a CAR
 
 
 ```
-### MULTI LEVEL INHERITANCE
+### Multi-level inheritance
 there are multiple level of classes 
 ```
         Parent - car / fruit
@@ -200,7 +200,7 @@ the levels as per your choic
 
 ![Concept](https://github.com/UjjwalSharma01/Cpp-and-DSA/blob/main/Images/Screenshot%20(1785).png)
 
-### MULTIPLE INHERITANCE
+### Multiple inheritance
 when there are multiple parent classes and a single child class is present and the child inherts the porperties from the parent, then this is known as multiple inheritance
 
 ```cpp
@@ -260,7 +260,7 @@ if two classes have same members in this case let's say chemistry is present in 
 SCOPE RESOLUTION OPERATOR  
 WE WILL DEFINE THE CLASS JAHA SE VALUE UTHANI H
 
-### HIERARCHICAL INHERITANCE
+### Hierarchical inheritance
 when there is a single parent class and multiple child class is present and the child inherts the porperties from the parent, then this is known as hierarchical inheritance
 
 ```cpp
@@ -295,7 +295,7 @@ you can create two functions of same name using this
 
 
 
-### TYPES OF POLYMORPHISM
+### Types of polymorphism
 1. Compile-time Polymorphism
 2. Run-time Polymorphism
 
@@ -308,11 +308,15 @@ based on two concepts
 
 
 
-### FUNCTION OVERLOADING
-when we make the function exist in multiple forms by changing it's signature each time,
-how we are changing the signature 
+### Function overloading
+when we make the function exist in multiple forms by changing it's signature each time,  
+
+
+how we are changing the signature ?
 - either by changing the number of parameters or by changing the type of parameters
--  changing the return type doesn't change the signature 
+
+_NOTE_ - 
+__changing the return type doesn't change the signature__
     
  ```cpp
 
@@ -343,38 +347,15 @@ int main(){
 ```
 
 
-### OPERATOR OVERLOADING
-We use "+" symbol to add two numbers we can use this also to subtract two numbers -> this concept is known as operator overloading
+### Operator overloading
+We use "+" symbol to add two numbers we can use this also to subtract two numbers -> this concept is known as operator overloading  
 - jo uss operator ka kaam nahi bhi tha vo bhi hamne usse kralia
 - different forms of a single operator is defined in this
 
 SYNTAX 
 ```cpp
-return_type <operator keyword> (operator sign){
-    function
-}
-```
-
-EXAMPLE
-```cpp
-// operator overloading
-class para{ // para = parameter
-    public:
-    int val;
-    void operator+(para& obj2){
-        int value1= this->val;
-        int value2 = obj2.val;
-        cout<<(value2 - value1)<<endl;
-    }
-};
-int main(){
-    para obj1, obj2;
-    obj1.val = 7;
-    obj2.val = 2;
-    // this should print the difference between them
-    obj1+obj2;
-
-    return 0;
+return_type operator<operator sign>(parameters){
+    // function .....
 }
 ```
 
@@ -392,18 +373,44 @@ function such that by using this sign in this way
  cout<<obj; 
  ```
  
- we would be able to print all the members of the class  
+ we should be able to print all the members of the class  
+
+ EXAMPLE
+```cpp
+// operator overloading
+class para{ // para = parameter
+    public:
+    int val;
+    void operator+(para& obj2){
+        int value1= this->val; // value of the current object "a"
+        int value2 = obj2.val;
+        cout<<(value2 - value1)<<endl;
+    }
+};
+int main(){
+    para obj1, obj2;
+    obj1.val = 7;
+    obj2.val = 2;
+    // this should print the difference between them
+    obj1+obj2; /*A+B -> here a is the current object and "+" ki definiton with respect to A dekhi jaegi, jisme B as a input hoga, it is same as
+a.add(b); function call add(which is considered to be a member function) in which b is the input parameter*/
+
+    return 0;
+}
+```
 
 
-### RELATED TO THE EXECUTION OM HOW THE OPERATOR WORKS, IN THE PROGRAM SPECIALLY IN THE CASE OF OVERLOADING
-A+B -> here a is the current object and "+" ki definiton with respect to A dekhi jaegi, jisme B as a input hoga, it is same as
-a.add(b); function call add in which b is the input parameter
+### How operator works in the case of operator overloading
+A+B -> here __"A"__ is the current object and __"+"__ ki definiton with respect to __A__ dekhi jaegi, jisme __"B"__ as a input hoga, it is same as
+__"a.add(b);"__ function call add in which __b is the input parameter__
 
-### RUN-TIME POLYMORPHISM / DYMANIC POLYMORPHISM
+--- 
+
+### RUN-TIME POLYMORPHISM | DYNAMIC POLYMORPHISM
 polymorphism that is being experienced DURING the execution of the program in the runtime is known as runtime polymorphism  
 We do function/method overiding here, overloading happens in Compile-time polymorphism  
 
-### OVER-RIDING
+### Over-riding
 suppose we have two class, one is parent class and one is child class and the child class is inherted from the parentclass, assuming the name of the classes are as follows  
 - PARENT CLASS - ANIMAL - it contains a function named speak which prints "speaking"
 - CHILD CLASS - DOG - since it is inherited from the animal class itself so it also contains the function "SPEAK" buthere we want the function to be more specific kyuki kutta bolta nahi h it barks so when we will __DEFINE or CUSTOMIZE the function by ourself after the inheritance, then thisconcept is known as FUNCTION OVER-RIDING__
@@ -428,37 +435,129 @@ __one line - to get the custom behavior of the inherited function, by explicitly
 
     int main (){
         dog obj;
-        obj.speak(); // this will print barking -> function overridden
+        obj.speak(); // this will print barking instead of inherited function -> function overridden
         return 0;
     }
 ```
 
-### UPCASTING 
-whenever you define or you dynamically define a variable using parent class as the pointer and the child class as the variable then it is known as __UPCASTING__
+### Upcasting 
+whenever you define or you dynamically define a variable using __parent__ class as the pointer and the __child__ class as the variable then it is known as __UPCASTING__
 
 
 SYNTAX 
 
 ```cpp
 animal* a = new dog();
-a->speak();
+a->speak(); // this will print speaking
 ```
 
 this will print the function of the parent
 
-EXECUTION 
-- first the pointer will be created in the stack
-- then the object will be created in the heap
-- then the pointer will point to the object in the heap
-- then the function will be called
-
 code
 ```cpp
+#include <iostream>
+using namespace std;
+class animal {
+    public:
+    virtual void speak(){
+        cout<<"speaking"<<endl;
+    }
+};
+
+class dog:public animal{
+    public:
+    // over-riding
+    void speak(){
+        cout<<"Barking"<<endl;
+    }
+};
+int main () {
 // upcasting
     animal* a = new dog();
-    a->speak(); // this will print speaking
+    a->speak(); // this will print speaking unless the virtual keyword is used
+    return 0;
+}    
 ```
 
-### DOWNCASTING
-whenever you do downcasting or upcasting without using the virtual keyword, hamesha pointer ka method call hoga and agr virtual keyword apply kia h then object ka function call hoga
-``
+Concept
+
+
+In upcasting if pointer is of parent class and object is of child class then the function of the parent class will be called, but if we want to call the function of the child class then we have to use the __virtual__ keyword in the parent class function
+
+### Downcasting
+
+when you use the child class as the pointer and the parent class as the object then it is known as downcasting
+
+_whenever you do downcasting or upcasting_ __without using the virtual keyword, hamesha pointer ka method call hoga and agr virtual keyword apply kia h then object ka function call hoga aur virtual keyword apply krne ke baad object ka function ya method call hoga__
+
+```cpp
+   // DOWNCASTING
+
+    // dog *f = new animal; // won't run
+    // f->speak();
+
+
+    // to make it work
+
+    dog *f = (dog* )new animal;
+    f->speak();
+
+    // now it will work
+```
+---
+
+## IMPORTANT FOR INTERVIEW
+patterns possible
+
+- parent* a = new parent();
+- parent* a = new child();
+- child* a = new child();
+- child* a = (child*)new parent();
+
+pointer type(left side) ke basis pe by default method ya function call hoga and and agr main chahta hu type of object(right hand side of the pattern) ke basis pe pick ho then i need to use virtual keyword in that method
+
+### Questions based on constructors made in different classes 
+
+
+cases
+- Parent consturctor is called
+- child constructor is called
+- parent and child both constructor is called
+
+```cpp
+// constructor calling
+    class parent{
+        public:
+        parent(){
+            cout<<"parent constructor"<<endl;
+        }
+    };
+
+    class child:public parent{
+        public:
+        child(){
+            cout<<"child constructor"<<endl;
+        }
+    };
+
+    int main(){
+        // case 1
+        parent* a = new parent(); // parent constructor will be called
+        // case 2
+        child* a = new child(); //both parent and child constructor will be called because of the default behaviour of inheritance, child class ka constructor chalne se pehle parent ka chalega
+        // dog a; -> both dynamically and statically same ans aaega
+        parent* a = new child(); // both parent and child constructor will be called
+
+
+        // KYUKI ACTUALLY OBJECT KIS TYPE KA BNA H IT DEPENDS ON RIGHT SIDE
+
+        // case 3 
+        child* a = (child*) new parent(); // parent constructor will be called because parent doesn't depend on any other class 
+        return 0;
+    }
+```
+
+__You have to check the dependency of the class on the other class while answering the question__
+
+
+also experiment this by yourself
