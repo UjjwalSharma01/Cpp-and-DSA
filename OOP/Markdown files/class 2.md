@@ -313,9 +313,152 @@ when we make the function exist in multiple forms by changing it's signature eac
 how we are changing the signature 
 - either by changing the number of parameters or by changing the type of parameters
 -  changing the return type doesn't change the signature 
+    
+ ```cpp
+
+    // function overloading
+    class maths{
+    public:
+    int sum(int a, int b){ // can create two functions of same name but they should have different input parameters/ signature alag hona chahiye
+        return a+b;
+        cout<<"im in the first signature"<<endl;
+    }
+
+    int sum(int a, int b, int c){ // polymorphism, function is existing in two different forms
+        return a+b+c;
+        cout<<"im in the second signature"<<endl;
+    }
+    int sum(int a, float b){
+        return a+b;
+        cout<<"im in the third signature"<<endl;
+    }
+};
+
+int main(){
+    maths obj;
+    cout<<obj.sum(2,3)<<endl; // first signature
+    cout<<obj.sum(2,3,4)<<endl; // second signature
+    return 0;
+}
+```
 
 
 ### OPERATOR OVERLOADING
 We use "+" symbol to add two numbers we can use this also to subtract two numbers -> this concept is known as operator overloading
--> jo uss operator ka kaam nahi bhi tha vo bhi hamne usse kralia
--> different forms of a single operator is defined in this
+- jo uss operator ka kaam nahi bhi tha vo bhi hamne usse kralia
+- different forms of a single operator is defined in this
+
+SYNTAX 
+```cpp
+return_type <operator keyword> (operator sign){
+    function
+}
+```
+
+EXAMPLE
+```cpp
+// operator overloading
+class para{ // para = parameter
+    public:
+    int val;
+    void operator+(para& obj2){
+        int value1= this->val;
+        int value2 = obj2.val;
+        cout<<(value2 - value1)<<endl;
+    }
+};
+int main(){
+    para obj1, obj2;
+    obj1.val = 7;
+    obj2.val = 2;
+    // this should print the difference between them
+    obj1+obj2;
+
+    return 0;
+}
+```
+
+__Uses__  
+
+used very rarely
+
+for example
+
+perform this in homework and also try to overload __">>"__ -> Whenever you use this function it should perform the print function
+if we have some sort of values in our class so instead of creating a __"PRINT"__ function to print all the members of the class we will overload the __"<<"__
+function such that by using this sign in this way 
+
+``` cpp
+ cout<<obj; 
+ ```
+ 
+ we would be able to print all the members of the class  
+
+
+### RELATED TO THE EXECUTION OM HOW THE OPERATOR WORKS, IN THE PROGRAM SPECIALLY IN THE CASE OF OVERLOADING
+A+B -> here a is the current object and "+" ki definiton with respect to A dekhi jaegi, jisme B as a input hoga, it is same as
+a.add(b); function call add in which b is the input parameter
+
+### RUN-TIME POLYMORPHISM / DYMANIC POLYMORPHISM
+polymorphism that is being experienced DURING the execution of the program in the runtime is known as runtime polymorphism  
+We do function/method overiding here, overloading happens in Compile-time polymorphism  
+
+### OVER-RIDING
+suppose we have two class, one is parent class and one is child class and the child class is inherted from the parentclass, assuming the name of the classes are as follows  
+- PARENT CLASS - ANIMAL - it contains a function named speak which prints "speaking"
+- CHILD CLASS - DOG - since it is inherited from the animal class itself so it also contains the function "SPEAK" buthere we want the function to be more specific kyuki kutta bolta nahi h it barks so when we will __DEFINE or CUSTOMIZE the function by ourself after the inheritance, then thisconcept is known as FUNCTION OVER-RIDING__
+
+__one line - to get the custom behavior of the inherited function, by explicitly defining it in the child class is known as function over-riding__
+
+```cpp
+// function over-riding
+    class animal{
+        public:
+        void speak(){
+            cout<<"speaking"<<endl;
+        }
+    };
+
+    class dog:public animal{
+        public:
+        void speak(){
+            cout<<"barking"<<endl;
+        }
+    };
+
+    int main (){
+        dog obj;
+        obj.speak(); // this will print barking -> function overridden
+        return 0;
+    }
+```
+
+### UPCASTING 
+whenever you define or you dynamically define a variable using parent class as the pointer and the child class as the variable then it is known as __UPCASTING__
+
+
+SYNTAX 
+
+```cpp
+animal* a = new dog();
+a->speak();
+```
+
+this will print the function of the parent
+
+EXECUTION 
+- first the pointer will be created in the stack
+- then the object will be created in the heap
+- then the pointer will point to the object in the heap
+- then the function will be called
+
+code
+```cpp
+// upcasting
+    animal* a = new dog();
+    a->speak(); // this will print speaking
+```
+
+### DOWNCASTING
+whenever you do downcasting or upcasting without using the virtual keyword, hamesha pointer ka method call hoga and agr virtual keyword apply kia h then object ka function call hoga
+``
