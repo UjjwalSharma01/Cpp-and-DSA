@@ -57,6 +57,8 @@ class abc{
 int abc::x; //definiting that x and y are related to all the instances made via this class
 int abc::y;
 int main () {
+
+
 //     abc obj1;
 //     obj1.x=1;
 //     obj1.y=2;
