@@ -12,7 +12,7 @@ keywords used
 Understanding pre-processor 
 
 compilation process
-compile -> pre processing -> compile -> machine code -> exe
+compiler -> pre processing -> compile -> machine code -> exe
 
 compilatiions se pehele, pi ki value uthaega, #define hatadega and pi ki value ko replace kr dega
 

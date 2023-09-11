@@ -15,7 +15,13 @@ Brute-force solution - >  simple solution to a particular problem
 
 INITIALISATION OF VECTOR
 
-vector<int> arr(10,20,30); - > {10,20,30}
+initialisation of vector using the values instead of size
+vector<int> arr{10,20,30}; - > {10,20,30}
+
+initialising by explicitly mentioning the size of the array
+vector<int> brr(10); - > size is 10 and by default vecctor is initialised with zero when the size is given
+
+intialising with some particular value
 vector <int> arr (4,-1); - > {-1,-1,-1,-1}
 
 
@@ -28,8 +34,7 @@ vector <int> arr(n); // we are defining that we will be storing N number of elem
 
 INSERTING VALUES
 
-aee.push_back(5);
-arr.pushback(7);
+arr.push_back(5);
 
 
 REMOVING THE ELEMENT
@@ -43,7 +48,7 @@ arr.size();
 
 
 
-IF EMPTTY?
+IF EMPTY?
 arr.empty()
 
 
@@ -147,7 +152,10 @@ int main() {
         cout<<drr[i]<<" ";
     }
 
+    // finding the number of values in the vector
+    vector <int> err{10,20,30};
 
+    cout<<"The size of the vector err is: "<<err.size()<<endl;
     
 
 

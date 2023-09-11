@@ -10,7 +10,6 @@ example - cont int x=10; now you cannot reassign the value of x again, throughou
 this is done to
 -> simplify the code 
 ->agr "const" se koi variabke declare kia h toh when you use this variable will do some optimisation and will load it in "REAL_ONLY MEMORY" which will make the code even more smoother -> access fast hoga
--> screenshot
 
 
 
@@ -113,7 +112,7 @@ macros are pre processror directives which allows you to define constansts funct
 
 
 
-#include <bits\stdc++.h>
+#include <bits/stdc++.h>
 class abc{
     int x;
     int *y; // pointer variable y is declared

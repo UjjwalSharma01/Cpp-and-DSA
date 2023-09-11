@@ -38,21 +38,6 @@ inline void numbershow(int num){
 }
 int main(){
 
-
-    // inline function will perfom this task it will replace the function with the excution itself
-    cout<<10<<endl;
-    cout<<10<<endl;
-    cout<<10<<endl;
-    cout<<10<<endl;
-    cout<<10<<endl;
-    cout<<10<<endl;
-    cout<<10<<endl;
-    cout<<10<<endl;
-    cout<<10<<endl;
-    cout<<10<<endl;
-    cout<<10<<endl;
-
-
     // inline function calls
     numbershow (10);
     numbershow (10);
@@ -74,6 +59,21 @@ int main(){
     numbershow (10);
     numbershow (10);
     numbershow (10);
+
+    // this is how the compiler will perfom the task
+    
+    // inline function will perfom this task it will replace the function with the excution itself
+    cout<<10<<endl;
+    cout<<10<<endl;
+    cout<<10<<endl;
+    cout<<10<<endl;
+    cout<<10<<endl;
+    cout<<10<<endl;
+    cout<<10<<endl;
+    cout<<10<<endl;
+    cout<<10<<endl;
+    cout<<10<<endl;
+    cout<<10<<endl;
     
     return 0;
 }
