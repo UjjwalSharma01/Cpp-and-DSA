@@ -23,3 +23,6 @@ for(int i=0;i<srr.size();){
     }
 }
 ```
+
+## Homework
+![url](https://github.com/UjjwalSharma01/Cpp-and-DSA/blob/main/Array/Images/Screenshot%20(1848).png)
