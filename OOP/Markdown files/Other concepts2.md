@@ -376,3 +376,22 @@ yes we can make a constructor private, but why would we do that?
 as a good practice, destructor of base or parent class should always be made virtual
 
 
+## IMPORTANT
+
+classes acts like a datatyp
+-> if you want to simultaneously define an object and initalise it you need to create a constructor, you can't do it using default constructor
+
+
+
+-> stack ke andr runtime ke time call kiye gaye functions ki value hoti h
+
+
+-> copy constructor -> by reference paas krna pdega vrna baar baar call hoke loop ba jaega inifinite
+const keyword
+memory layout
+
+
+IMPORTANT 
+
+dymamic allocation of array wala
+
