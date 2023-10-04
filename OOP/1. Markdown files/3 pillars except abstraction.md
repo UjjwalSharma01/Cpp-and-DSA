@@ -45,7 +45,7 @@ abstraction is->  upr upr se btana, kisi bhi cheez ke bareme upr upr se baat krn
 _just for info don't stress much on it right now_
 
 
-## Implementation of encapsulation
+## Implementation of Encapsulation
 ```cpp
 // ENCAPSULATION EXAMPLE
 
@@ -76,7 +76,7 @@ just like in humans, child inherit some properties from their parents, in the sa
 
 here child class inherit the propeties(Data members and data functions) from the parent class
 
-SYNTAX - 
+SYNTAX -
 ```cpp
 class child: <mode of inheritance> parent;
 ```
@@ -103,16 +103,16 @@ class child: <mode of inheritance> parent;
 ```
 
 ### Mode of inheritance
-- public 
-- private
-- protected
+- Public 
+- Private
+- Protected
 
 
 ### Chart for mode of inheritance 
 
 ![Chart](https://github.com/UjjwalSharma01/Cpp-and-DSA/blob/main/Images/Screenshot%20(1783).png)
 
-### Protected class - 
+### Protected Class - 
 
 behaves sames as the private class in all the cases but it can be accessed within the child class
 
@@ -131,7 +131,7 @@ private will be inaccesible
 5. Hybrid
 
 
-## Single inheritance 
+## Single Inheritance 
 when there is a single parent class and a single child class is present and the child inherts the porperties from the parent, then this is known as single inheritance
 
 there is always a _"IS A"_ relationship in single inheritance 
@@ -162,7 +162,7 @@ for example - RANGE ROVER is a CAR
 
 
 ```
-### Multi-level inheritance
+### Multi-level Inheritance
 there are multiple level of classes 
 ```
         Parent - car / fruit
@@ -285,6 +285,11 @@ when there is a single parent class and multiple child class is present and the 
 ```
 
 ### Polymorphism
+
+__From Class__
+![Polymorphism](https://github.com/UjjwalSharma01/Cpp-and-DSA/blob/8f982220a7f5bc0817571dea3526ceedc597ab7e/Images/IMG20231004135913.jpg)
+
+![Polymorphism](https://github.com/UjjwalSharma01/Cpp-and-DSA/blob/8f982220a7f5bc0817571dea3526ceedc597ab7e/Images/IMG20231004135913.jpg)
 
 What is POLYMORPHISM?  
 POLY - many  
@@ -561,3 +566,8 @@ __You have to check the dependency of the class on the other class while answeri
 
 
 also experiment this by yourself
+
+
+## Constructors
+![Constructor](https://github.com/UjjwalSharma01/Cpp-and-DSA/blob/8f982220a7f5bc0817571dea3526ceedc597ab7e/Images/IMG20231004142627.jpg)
+
