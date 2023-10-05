@@ -286,7 +286,7 @@ when there is a single parent class and multiple child class is present and the 
 
 ### Polymorphism
 
-__From Class__
+__From Class__  
 ![Polymorphism](https://github.com/UjjwalSharma01/Cpp-and-DSA/blob/8f982220a7f5bc0817571dea3526ceedc597ab7e/Images/IMG20231004135913.jpg)
 
 ![Polymorphism](https://github.com/UjjwalSharma01/Cpp-and-DSA/blob/8f982220a7f5bc0817571dea3526ceedc597ab7e/Images/IMG20231004135913.jpg)
