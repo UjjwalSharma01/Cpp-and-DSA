@@ -291,6 +291,8 @@ __From Class__
 
 ![Polymorphism](https://github.com/UjjwalSharma01/Cpp-and-DSA/blob/8f982220a7f5bc0817571dea3526ceedc597ab7e/Images/IMG20231004135913.jpg)
 
+![Polymorphism](https://github.com/UjjwalSharma01/Cpp-and-DSA/blob/f44a26bf30772f0ccf8a5e41d59698fe4a5cf2b5/Images/IMG-20231005-WA0028.jpg)
+
 What is POLYMORPHISM?  
 POLY - many  
 MORPH - forms  
@@ -642,3 +644,4 @@ also experiment this by yourself
 ## Constructors
 ![Constructor](https://github.com/UjjwalSharma01/Cpp-and-DSA/blob/8f982220a7f5bc0817571dea3526ceedc597ab7e/Images/IMG20231004142627.jpg)
 
+![Ctor](https://github.com/UjjwalSharma01/Cpp-and-DSA/blob/f44a26bf30772f0ccf8a5e41d59698fe4a5cf2b5/Images/IMG-20231005-WA0029.jpg)
