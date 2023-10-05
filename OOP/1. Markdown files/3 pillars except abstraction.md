@@ -411,6 +411,77 @@ __"a.add(b);"__ function call add in which __b is the input parameter__
 
 --- 
 
+### Operators which can't be overloaded
+- __"::"__ scope resolution operator
+- __"."__ member access operator
+- __"?:"__ conditional operator or The ternary operator
+- __sizeof()__ size of operator
+- __Sizeof()__ Operator
+
+### Operator overloading using friend function
+```cpp
+class a{
+    public:
+    int val;
+    friend void operator+(a& obj1, a& obj2);
+};
+void operator +(a& obj1, a& obj2){
+    int value1 = obj1.val;
+    int value2 = obj2.val;
+    cout<<(value1+value2)<<endl;
+}
+int main(){
+    a obj1, obj2;
+    obj1.val = 2;
+    obj2.val = 3;
+    obj1+obj2;
+    return 0;
+}
+```
+
+---
+### Some Impostant points to remember
+- while implementing operator overloading using member function the first object invokes the operator and the second object is passed as the parameter
+Example
+```cpp
+class a{
+    public:
+    int val;
+    void operator+(a& obj2){
+        int value1= this->val; // value of the current object "a"
+        int value2 = obj2.val;
+        cout<<(value2 - value1)<<endl;
+    }
+};
+int main(){
+    a obj1, obj2;
+    obj1.val = 7;
+    obj2.val = 2;
+    obj1+obj2; // the obj1 is invoking the operator and obj2 is passed as the parameter
+    return 0;
+}
+```
+- while implementing operator overloading using friend function both the objects are passed as the parameter
+Example
+```cpp
+class a{
+    public:
+    int val;
+    friend void operator+(a& obj1, a& obj2);
+};
+void operator +(a& obj1, a& obj2){
+    int value1 = obj1.val;
+    int value2 = obj2.val;
+    cout<<(value1+value2)<<endl;
+}
+int main(){
+    a obj1, obj2;
+    obj1.val = 2;
+    obj2.val = 3;
+    obj1+obj2; // both the objects are passed as the parameter
+    return 0;
+}
+```
 ### RUN-TIME POLYMORPHISM | DYNAMIC POLYMORPHISM
 polymorphism that is being experienced DURING the execution of the program in the runtime is known as runtime polymorphism  
 We do function/method overiding here, overloading happens in Compile-time polymorphism  
