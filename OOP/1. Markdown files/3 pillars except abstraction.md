@@ -485,6 +485,10 @@ int main(){
 }
 ```
 ### RUN-TIME POLYMORPHISM | DYNAMIC POLYMORPHISM
+
+<img src="Images/IMG-20231010-WA0013.jpg" alt="Image 1">
+<img src="Images/IMG-20231010-WA0014.jpg" alt="Image 1">
+
 polymorphism that is being experienced DURING the execution of the program in the runtime is known as runtime polymorphism  
 We do function/method overiding here, overloading happens in Compile-time polymorphism  
 
