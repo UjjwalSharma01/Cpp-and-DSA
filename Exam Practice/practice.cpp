@@ -250,28 +250,47 @@ Write a C++ program that uses function overloading to find the area of a circle,
 // }
 
 
+// #include <iostream>
+// using namespace std;
+// class c {
+//     public:
+//     int a =5;
+//     int b ;
+//     c(int x, int y){
+//         a = x;
+//         b = y;
+//     }
+//     void getb(int b){
+//         this-> b = b;
+//     }
+//     c(c &obj){
+//         a= 
+//     }
+// };
+// int main(){
+//     c obj1(10,20);
+//     // obj1.getb(10);
+//     c obj2 = obj1;
+//     cout<<obj2.b<<endl;
+//     return 0;
+// }
+
+
 #include <iostream>
 using namespace std;
-class c {
-    public:
-    int a =5;
-    int b ;
-    c(int x, int y){
-        a = x;
-        b = y;
-    }
-    void getb(int b){
-        this-> b = b;
-    }
-    c(c &obj){
-        a= 
-    }
-};
 int main(){
-    c obj1(10,20);
-    // obj1.getb(10);
-    c obj2 = obj1;
-    cout<<obj2.b<<endl;
+    // normal int declaration using dynamic memory allocation
+    int* a = new int;
+
+    // arrau using dynamic memory allocation
+    int size;
+    cout<<"Enter the size of the array"<<endl;
+    cin>>size;
+
+    int* arr = new int[size];
+
+
+    delete []arr;
     return 0;
 }
 /*
