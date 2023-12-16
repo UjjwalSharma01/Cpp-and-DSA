@@ -1,169 +1,51 @@
-# Complete STL,Algorithms and Their Time Complexities
-
-STL - standard template library, it is the set of various containers (stores data),algorithms(process data), and iterators (points data just like pointers) use to extract data from containers
-
-### Features
-
-- pre built in c++ which are used to perfrom certain task which are already being available in the c++ and you don't have to re-invent the wheel -> also you don't have to
-- write a very big code again and again , you can just use the pre-built things to execute things in a faster way
-
-**Things we will be learning here**
-
-1. Algorithms
-2. Functions
-3. Containers - first will be learning this
-4. Iterators - and this
-
-## Pairs
-
-pair is a container which is used to store two values of different data types, actually a part of utility library
-when we are storing integer, instead of storing them individually, we can also store them in pairs using pair container along with pair of different data types
-
-__Example__
-```cpp
-#include <bits/stdc++.h>
+// Array
+/* basically a static array in STL nothing else than that */
+#include <iostream>
+#include<array> // use this library to use array in your program
 using namespace std;
-void pairexp() {
-    // simple syntax
-    pair<int, int> p= {1,2};
-    cout<<p.first<<" "<<p.second; // one way  of storing "basic syntax" and accesing the data stores using (.) operator
-    // nested pair function
-    pair<int , pair<int, int>> c={1,{2,3}};
-    cout<< c.first<<" "<<c.second.first<<c.second.second<<endl;
-    // array of pair
-    pair<int , int> arr[] = { {12,3}, {132,223}, {134,234}};
-    cout<<arr[1].second<<endl;
-    cout<<"My experimentation on pairs"<<endl;
-    // cout<<arr[1]<<endl; - > cannot do this we can access one member at a time
-    cout<<arr[1].first<<endl;
-
-}
-```
-
-## Vectors
-- __VECTOR IS A CONTAINER (STORES DATA) -> WHICH IS DYNAMIC IN NATURE (YOU CAN CHANGE THE SIZE WHEN REQUIRED)__
-- vectors are just like array, they store the values of a datatype (elements) but unlike the array they have dynamic nature of memory allocation which means that they can be modified when requires -> the array, once declared, of a particular size , its size cannot be changed again,
-- it is mostly used when you donot know the size of a particular data 
-- it is a part of sequence containers of STL
-__Example__
-```cpp
-
-void vectorexp() {
-    // vector is a container -> will be there ins que,stack etc
-    // syntax - vector<datatype> "name";
-    vector<int> v ;// -> creates an empty container it will look like v= { }
-    v.push_back(1); // will insert the value one into it now it will look like v = {1}
-    v.emplace_back(2); // similar to pushback and it's dynamically increase the size of the  and insert to at the back of it, it generally faster than the push_back now the vector will look like v = {1,2}
-    v.emplace_back(3);
-    v.emplace_back(18);
-
-    vector<pair<int, int>> vec; //vector of a pair datatype
-    vec.push_back({1,2}); // in push back you have to use "{}" in order to input a pair
-    vec.emplace_back(3,4); // remember this point that we don't use"{}" this sign here in the emblace back
-
-    vector<int> ve(5,100); // it is the container containing the value 100 five time it looks something like this ve = {100, 100, 100, 100, 100}
-    vector<int> vei(5); // -> a container with 5 instances of garbage value is initialised 
-
-    vector<int> v1(5,20); // -> will create five instances of 20 - > we can even now increase it's size
-    v1.emplace_back(8);
-    cout<<"Accessing Vectors"<<endl;
-
-    // accessing elements in the vector
-    // METHOD 1
-    cout<<v1[5]<<endl;
-    //  METHOD 2 -> generally people don't use it
-    cout<<v1.at(2)<<endl;
-    vector<int> v2(v1); // copying one vector to another
-
-    // ACCESSING USING ITERATORS
-    /*
-    it points towards the memory address (just like pointers) -> it points at the memory address whereever we want it to point
-
-    SYNTAX
-
-    DATA STRUCTURE<DATATYPE>::iterator name : name.positinj();
+int main(){
+    // Syntax 
+    // array<datatype, size> name;
+    array<int> arr(5) = {1,2,3,4,5}; // when the size is known
     
-    */
-
-   cout<<"Acessing using iterators"<<endl;
-
-    vector<int>::iterator it = v.begin();
-    it++; // -> shifted to the next memory location - > member of the vector
-    cout<< *(it)<< " "<<endl;
-
-    it = it+2;
-    cout<<*(it)<<" "<<endl;
-
-    /*
-    example vector for understanding = {10,20,30,40}
-    */
-
-    // TYPES OF ITERATORS
-
-    // vector<int>::iterator it = v.end(); -> the iterator will move to the position after 40 and not 40 -> when we will do "it--" then it will come back to 40 - > in short END points to the memory location just after thr last element
-    // vector<int>::iterator it = v.rend(); -> Reverse end - > (NEVER EVER USED) - > considering the string in the reverse order {40,30,20,10} and it will start pointing at the memory location just after the 10
-    // -> it also moves in the reverse way - > 40 - > 30 - > 20 - > 10
-    // vector<int>::iterator it = v.rbegin(); -> reverse begin -> starts with the memory location just before the 40
-
-    cout<<v[0]<<" "<<v.at(0)<<endl;
-    cout<<v.back() << " "<<endl; // the last elemt
-
-    // USING LOOPS
-
-    for (vector<int>::iterator it = v.begin(); it !=v.end();it++){
-        cout<<*(it)<<" ";
+    // when we have to initialise the array with some particular number
+    array<int> arr(5, 10); // it will initialise the array with 10
+    
+    // traveral of this array
+    for(int i=0;i<5;i++){
+        cout<<arr[i]<<" ";
     }
-    cout<<endl;
-
-
-
-    // THE AUTO KEYWORD
-    auto a = 5; //-> it automatically assign the datatype according to the given data
-    auto b="Ujjwal"; //-> it automatically assign the datatype according to the given value
-
-
-
-    // METHOD - 2 (shortcut)
-    for(auto it= v.begin(); it!=v.end();it++){ // -> when you use auto-> it automatically asignes it to a vector iterator
-        cout<<*(it)<<" ";
+    
+    // other variation of loop
+    for(int i:arr){ // syntax -> for(datatype variable:array name)
+        cout<<i<<" ";
     }
-
-
-
-    // FOR - EACH LOOP
-    cout<<"using For-each loop"<<endl;
-    // read as "it" on v
-    for(auto it:v){ // it means for-each datatype - > automatically iterate on the datatype - > i need to read more about this (REVIEW)
-        cout<<it<<" ";
-    }
-    cout<<endl;
-
-    cout<<"DELETING VECTORS"<<endl;
-
-    v.erase(v.begin()+1);
-
-    v.erase(v.begin()+2,v.begin()+4);
-
-    //insert function
-    vector<int> (2,100); //(100,100)
-    v.insert(v.begin(),300);
-    v.insert(v.begin()+1,2,10);
-
-    vector<int> copy(2,50); //{50,50}
-    v.insert(v.begin(), copy.begin(), copy.end());
-
-
-
-    cout<<v.size();
-
-    v.pop_back();
-
-
+    
+    // random access
+    cout<<arr.at(2)<<endl; // using at operation
+    
+    // front and back operation
+    cout<<arr.front()<<endl; // it will return the first element of the array
+    cout<<arr.back()<<endl; // it will return the last element of the array
+    
+    // size of the array
+    cout<<arr.size()<<endl; // it will return the size of the array
+    
+    // empty function
+    cout<<arr.empty()<<endl; // it will return 0 if the array is not empty and 1 if the array is empty
+    
+    // fill function
+    arr.fill(10); // it will initialise entire array with the given value
+    
+    // swap function
+    array<int, 5> arr2 = {1,2,3,4,5};
+    arr.swap(arr2); // it will swap the two arrays 
+    // clear function
+    // enough for now
+    return 0;
 }
 
-```
-Example 2
-```cpp
+// Vector
 /* basically a dynamic array in STL nothing else than that */
 #include <iostream>
 #include<vector> // use this library to use vector in your program
@@ -229,13 +111,13 @@ int main(){
 
     return 0;
 }
-```
-Push back vs emplace back what's the difference? and which one is faster?
-push_back is used to add the element at the end of the vector and emplace_back is used to add the element at the end of the vector but it is faster than push_back 
 
-## Double ended queue
-deletion and insertion is possible at both the ends in deque, and random access is also possible
-```cpp
+// Push back vs emplace back what's the difference? and which one is faster?
+/* push_back is used to add the element at the end of the vector and emplace_back is used to add the element at the end of the vector but it is faster than push_back */
+
+
+// Double ended queue
+/* deletion and insertion is possible at both the ends in deque, and random access is also possible*/
 #include <iostream>
 #include<deque> // use this library to use deque in your program
 using namespace std;
@@ -281,14 +163,9 @@ int main(){
     d.erase(d.begin()+2, d.begin()+4); // it will erase the elements from index 2 to index 4
     return 0;
 }
-```
-## List 
-- it is a doubly linked list
-- it is a linear data structure
-- it is a sequence container
-- it is dynamic in nature
 
-```cpp
+// List
+/* it is a doubly linked list */
 #include <iostream>
 #include<list> // use this library to use list in your program
 using namespace std;
@@ -319,10 +196,9 @@ int main(){
 
     return 0;
 }
-```
-## Stack
-it is a LIFO data structure
-```cpp
+
+// Stack
+/* it is a LIFO data structure */
 #include <iostream>
 #include<stack> // use this library to use stack in your program
 using namespace std;
@@ -352,10 +228,9 @@ int main(){
     cout<<s.empty()<<endl; // it will return 0 if the stack is not empty and 1 if the stack is empty
     return 0;
 }
-```
-## Queue
-it is a FIFO data structure
-```cpp
+
+// Queue
+/* it is a FIFO data structure */
 #include <iostream>
 #include<queue> // use this library to use queue in your program
 using namespace std;
@@ -389,12 +264,13 @@ int main(){
     cout<<q.empty()<<endl; // it will return 0 if the queue is not empty and 1 if the queue is empty
     return 0;
 }
-```
-## Priority Queue
-- it is made using the concept of min and max heap and it is a max heap by default
-- if made using max heap then the element with the highest priority will be at the front of the queue
-- if made using min heap then the element with the lowest priority will be at the front of the queue
-```cpp
+
+// Priority Queue
+/*
+it is made using the concept of min and max heap and it is a max heap by default
+if made using max heap then the element with the highest priority will be at the front of the queue
+if made using min heap then the element with the lowest priority will be at the front of the queue
+*/
 
 #include <iostream>
 #include<queue> // use this library to use priority queue in your program
@@ -443,28 +319,27 @@ int main(){
     cout<<p.empty()<<endl; // it will return 0 if the priority queue is not empty and 1 if the priority queue is empty
     return 0;
 }
-```
-## Set
 
-it is a data structure which stores the unique elements in sorted order  
-cannot modify the elements once inserted  
-behind the scene it is implemented using BST(Binary Search Tree)  
-elements are returned in sorted order  
+// Set
+/* it is a data structure which stores the unique elements in sorted order 
+cannot modify the elements once inserted
+behind the scene it is implemented using BST(Binary Search Tree)
+elements are returned in sorted order
 
-difference between ordered and unordered set  
-ordered set -> elements are returned in sorted order it is relatively solower than unordered set  
-unordered set -> elements are returned in random order  
+difference between ordered and unordered set
+ordered set -> elements are returned in sorted order it is relatively solower than unordered set
+unordered set -> elements are returned in random order
 
 
-how its impelemented? a pictorial example via BST in which smaller elements go left and larger elements go right  
+how its impelemented? a pictorial example via BST in which smaller elements go left and larger elements go right
         5
        / \
       3   7
      / \ / \
     1  4 6  8
 
-if we try to store already existing element in the set then it will not be stored in the set  
-```cpp
+if we try to store already existing element in the set then it will not be stored in the set
+*/
 #include <iostream> 
 #include<set> // use this library to use set in your program
 using namespace std;
@@ -500,13 +375,14 @@ int main(){
     return 0;
 
 }
-```
-## Map
-it is a data structure which stores the data in the fomat of key value pairs  
-all the keys are unique  
-one key can point to only one value  
-2 values can point to same key but one key cannot point to 2 values  
-```cpp
+
+// Map
+/* it is a data structure which stores the data in the fomat of key value pairs
+all the keys are unique
+one key can point to only one value
+2 values can point to same key but one key cannot point to 2 values 
+
+*/
 #include <iostream>
 #include<map> // use this library to use map in your program
 using namespace std;
@@ -538,9 +414,9 @@ int main(){
     m.insert({2,3}); // it will insert the key value pair in the map
     return 0;
 }
-```
-# Algorithms
-```cpp
+
+
+//algorithms
 #include <iostream>
 #include<algorithm> // use this library to use algorithms in your program
 using namespace std;
@@ -589,29 +465,29 @@ int main(){
     return 0;
 }
 
-```
+/*
+Other notes
+the complexity of each function in these STL containers
+in all other functions other than set and map
+    1. random access -> O(1)
+    2. insertion or deletion at the end -> O(1)
+    3. insertion or deletion at the beginning -> O(n)  // because we have to shift all the elements
+    4. insertion or deletion in the middle -> O(n)
 
-# All time complexities of the functions used 
-the complexity of each function in these STL containers  
-### in all other functions other than set and map  
-1. random access -> O(1)
-2. insertion or deletion at the end -> O(1)
-3. insertion or deletion at the beginning -> O(n)  // because we have to shift all the elements
-4. insertion or deletion in the middle -> O(n)
-
-### in set and map
-1. insertion -> O(logn) // because it is implemented using BST and it takes logn time to insert an element in BST
-2. deletion -> O(logn)
-3. searching -> O(logn)
-4. traversal -> O(n)
-5. Find -> O(logn)
-6. Erase -> O(logn)
-7. Count -> O(logn)
-8. Lower bound -> O(logn)
-9. Upper bound -> O(logn)
-10. Swap -> O(1)
-11. Reverse -> O(n)
-12. Rotate -> O(n)
-13. Max -> O(1)
-14. Min -> O(1)
-15. Sort -> O(nlogn)
+in set and map
+    1. insertion -> O(logn) // because it is implemented using BST and it takes logn time to insert an element in BST
+    2. deletion -> O(logn)
+    3. searching -> O(logn)
+    4. traversal -> O(n)
+    5. Find -> O(logn)
+    6. Erase -> O(logn)
+    7. Count -> O(logn)
+    8. Lower bound -> O(logn)
+    9. Upper bound -> O(logn)
+    10. Swap -> O(1)
+    11. Reverse -> O(n)
+    12. Rotate -> O(n)
+    13. Max -> O(1)
+    14. Min -> O(1)
+    15. Sort -> O(nlogn)
+*/
