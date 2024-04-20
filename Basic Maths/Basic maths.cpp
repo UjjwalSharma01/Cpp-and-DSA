@@ -9,7 +9,8 @@ PRIME NUMBER
 
 PRIME NUMBERS SHOULD HAVE ATLEAST 2 FACTORS
 
-2. SQRT approach -> 
+Basic concepts
+1. Extraction of numbers -> modulo 10, which means that the number will get divided by 10 and whatever will be the remainder we will get that
 
 
 
