@@ -11,9 +11,7 @@ PRIME NUMBERS SHOULD HAVE ATLEAST 2 FACTORS
 
 Basic concepts
 1. Extraction of numbers -> modulo 10, which means that the number will get divided by 10 and whatever will be the remainder we will get that
-
-
-
+if you are divdiing something by 10 or any digit that's when logarithmic time complexity comes into picture
 
 */
 
