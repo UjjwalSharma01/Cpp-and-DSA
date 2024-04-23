@@ -27,6 +27,19 @@ for boolean its `10^7` in main and `10^8` globally
 
 when you declare an array globally then it is automatically assigned or initialised with __Zero__ instead of garbage values and you don't need to do this explicitly
 
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+int main (){
+    int arr [] = {1,2,3,1,1,1,1,1};
+    int hash [4]= {0}; // initializing the values with 0 initially
+    for(int i=0;i<8;i++){
+        hash[arr[i]] = hash[arr[i]]+1;
+    }
+    cout<<hash[1];
+    return 0;
+}
+```
 
 
 ## Character Hashing
@@ -45,6 +58,27 @@ int initial = 'a';
 int index = ch - initial // 102-97 => 5
 ```
 
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+    string a = "ujjwalsharmaji";
+    int length = a.length();
+    int hash[26] = {0};
+    for(int i =0;i<length;i++){
+        // concept to be used character-'a' = hash value
+        int character = a[i];
+        int initial = 'a';
+        hash[(character - initial)] = hash[(character - initial)] +1;
+    }
+
+    // counting the frequency
+    int check = 'j';
+    cout<<hash[check -'a'];
+    return 0;
+}
+```
+
 if any information is not given then we will declare the size of the array is 256 and this way we will precompute
 
 ```cpp
@@ -56,6 +90,23 @@ int hash[256] = {0};
 for(int i=0;i<256;i++){
 hash[s[i]]++;
 }
+```
+
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+int main (){
+    string s = "!@$@FDSFSDF11wDSAFSDGWERnfsdjnfsdngksgjsdhfj";
+    int length = s.length();
+    int hash[256] = {0};
+    for(int i = 0;i<length;i++){
+        hash[s[i]] = hash[s[i]] +1;
+    }
+
+    // checking the frequency now
+    cout<<hash['@']<<cout;
+    return 0;
+} 
 ```
 ## Map/HashMap
 To solve the problem of bigger size things, we will implement this using STL
@@ -70,6 +121,28 @@ now you need to iterate through the array and create the a map where key is the 
 it stores less memory
 <image>
 
+### Application
+
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+    int arr[] = {1,2,3,1,1,1,1,1};
+    int length = 8;
+    map<int,int> m;
+    for(int i=0;i<length;i++){
+        m[arr[i]]++;
+    }
+
+    // iterating through the map
+    for(auto i:m){
+        cout<<i.first<<" "<<i.second<<endl;
+    }
+    cout<<m[1];
+    return 0;
+}
+
+```
 problem -> left
 
 ## Time Complexity (map) , unordered map
@@ -84,6 +157,29 @@ takes `O(1)` in avg and best cases (most cases) but takes `O(n)` in worst case s
 __ most of the time in the first place use unordered map and if fails use ordered map__
 
 Why worst case happens ? -> because of internal collisions
+
+__example of hashing using unordered map__
+
+```cpp
+// hashing using unorderd map
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+    int arr[] = {1,2,3,1,1,1,1,1};
+    int length = 8;
+    unordered_map<int,int> m;
+    for(int i=0;i<length;i++){
+        m[arr[i]]++;
+    }
+
+    // iterating through the map
+    for(auto i:m){
+        cout<<i.first<<" -> "<<i.second<<endl;
+    }
+    cout<<m[1]<<endl;
+    return 0;
+}  
+```
 
 ## Hashing Methods
 1. Division Method (Linear Chaining)
@@ -110,3 +206,6 @@ need to check video again
 in ordrered map any datastructure or the pair of datastructure can be the key, example the pair of two ints
 
 but this is not the case in unordered map, it is limited to int double char and string
+
+
+../characterHashing.cpp ../hashingBasics.cpp ../hashingUsingHashmap.cpp ../hashingUsingUnorderedMap.cpp ../undefinedCharHashing.cpp
