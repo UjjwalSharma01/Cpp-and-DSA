@@ -1,5 +1,12 @@
 #include<bits/stdc++.h>
 using namespace std;
+
+int meraFunction (vector <int> b, long long k){
+    int length = 0;
+    int sum = 0;
+    
+    return length;
+}
 int longestSubarrayWithSumK(vector<int> a,long long k) {
     map<long long, int> preSumMap;
     long long sum = 0;
