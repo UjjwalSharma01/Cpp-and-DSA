@@ -206,6 +206,3 @@ need to check video again
 in ordrered map any datastructure or the pair of datastructure can be the key, example the pair of two ints
 
 but this is not the case in unordered map, it is limited to int double char and string
-
-
-../characterHashing.cpp ../hashingBasics.cpp ../hashingUsingHashmap.cpp ../hashingUsingUnorderedMap.cpp ../undefinedCharHashing.cpp
