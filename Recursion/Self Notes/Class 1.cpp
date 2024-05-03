@@ -90,69 +90,106 @@ IMPORTANT
 
 
 
+// #include <bits/stdc++.h>
+
+// // factorial
+// // int fact(int n){
+
+// //     // base case
+// //     if(n==0 || n ==1){
+// //         return 1;
+// //     }
+// //     else {
+// //         return n*fact(n-1);
+// //     }
+// // }
+
+// using namespace std;
+
+// // reverse counting
+// // void count(int k){
+// //     // base case
+// //     if(k==0){
+// //         return;
+// //     }
+// //     else{
+// //         //processing
+// //         cout<<k<<" ";
+// //         //recursive relation
+// //         count(k-1);
+// //     }
+// // }
+
+//    // FIBONACCI
+//     int fib(int n){
+//         // base case
+//         if(n==1){   //first term
+//             return 0;
+//         }
+//         if(n==2){ //second term
+//             return 1;
+//         }
+//         // processing
+//         // cout<< n <<" ";
+//         // recursive relation
+//         return fib(n-2)+fib(n-1);
+//     }
+// int main() {
+//     // int k,l;
+//     // cout<<"give the number"<<endl;
+//     // cin>>k;
+//     // l=fact(k);
+//     // cout<<l<<endl;
+
+
+//     // REVERSE COUNTING CODE
+//     // int k;
+//     // cout<<"give the number for reverese counting"<<endl;
+//     // cin>>k;
+//     // count(k); // cannot use cout here i was making the mistake
+//     int k,l;
+//     cout<<"provide the number of terms"<<endl;
+//     cin>>k;
+//     l=fib(k);
+//     cout<<l;
+    
+    
+//     return 0;
+// }
+
+
+// code once again
+// finding the factorial of a number
 #include <bits/stdc++.h>
-
-// factorial
-// int fact(int n){
-
-//     // base case
-//     if(n==0 || n ==1){
-//         return 1;
-//     }
-//     else {
-//         return n*fact(n-1);
-//     }
-// }
-
 using namespace std;
-
-// reverse counting
-// void count(int k){
-//     // base case
-//     if(k==0){
-//         return;
-//     }
-//     else{
-//         //processing
-//         cout<<k<<" ";
-//         //recursive relation
-//         count(k-1);
-//     }
-// }
-
-   // FIBONACCI
-    int fib(int n){
-        // base case
-        if(n==1){   //first term
-            return 0;
-        }
-        if(n==2){ //second term
-            return 1;
-        }
-        // processing
-        // cout<< n <<" ";
-        // recursive relation
-        return fib(n-2)+fib(n-1);
+int factorial(int n){
+    if(n==0|| n==1){
+        return 1;
     }
-int main() {
-    // int k,l;
-    // cout<<"give the number"<<endl;
-    // cin>>k;
-    // l=fact(k);
-    // cout<<l<<endl;
+    return n*factorial(n-1);
+}
+int fibonacci(int n){
+    if(n == 0){
+        return 0;
+    }
+    if(n ==1){
+        return 1;
+    }
+    return fibonacci(n-1)+fibonacci(n-2);
+}
+int main(){
+    int n;
+    // cout<<"enter the number to find the factorial of"<<endl;
+    // cin>>n;
+    // int ans = factorial(n);
+    // cout<<"The factorial of the program is "<<ans<<endl;
 
+    // finding the fibonacci series of the number by inputting the length of the numbers needed
+    cout<<"Enter the numbers you want in the series"<<endl;
+    cin>>n;
+    for(int i = 0;i<n;i++){
+        cout<<fibonacci(i)<<" ";
+    }
 
-    // REVERSE COUNTING CODE
-    // int k;
-    // cout<<"give the number for reverese counting"<<endl;
-    // cin>>k;
-    // count(k); // cannot use cout here i was making the mistake
-    int k,l;
-    cout<<"provide the number of terms"<<endl;
-    cin>>k;
-    l=fib(k);
-    cout<<l;
-    
-    
     return 0;
 }
