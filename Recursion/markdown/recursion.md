@@ -190,3 +190,51 @@ int main(){
     return 0;
 }
 ```
+### Check if the array is sorted in ascending order or not
+__Problem statement__ - check if the array is arranged in ascending order or not, you need to return true if yes and false if no
+
+__intuition__ - i will use two pointer approach over here, first i will intialise pointer one with `arr[0]` and pointer 2 with `arr[1]`, then i will keep on updating these values until the `size` less than `array.size()-1`, and if for all values `pointer 1 < pointer 2` 
+
+i will return true, else false
+
+code solution
+
+
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+bool arraySorted(vector<int>arr,int size, int index){
+    // base case 
+    if(index == size-1){
+        return true;
+    }
+
+    // calculation
+    if(arr[index]>arr[index+1]){
+        return false;
+    }
+    // main ek step nikalunga baki recursion sambhal lega
+
+    // recursive case
+    return arraySorted(arr, size, index+1);
+    
+}
+int main(){
+    int n;
+    cout<<"Enter the size of the array"<<endl;
+    cin>>n;
+    vector<int> arr(n);
+    cout<<"Now input the values into the array"<<endl;
+    for(int i = 0;i<n;i++){
+        cout<<"Enter the value of arr["<<i<<"]"<<endl;
+        cin>>arr[i];
+    }
+    int size = n;
+
+    // calling the function to check if the array is sorted or not
+    int index = 0;
+    bool ans = arraySorted(arr,size,index);
+    cout<<ans;
+    return 0;
+}
+```
