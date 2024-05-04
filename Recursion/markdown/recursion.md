@@ -281,12 +281,17 @@ int main(){
 
 ## Print Subsequence
 what is subsequence? -> subsequence is a contagious or non contagious part of the string which follows a pattern or order
-![subsequence](/Recursion/Self%20Notes/image%20copy.png)
-![subsequence](/Recursion/Self%20Notes/image%20copy%202.png)
-
 it should follow the order in the sense-> that the order of the elements should be same as the original string or array
 
-__there are teo methods to print all of these subsequences, first is power set method and second is recursion method__
+![subsequence](/Recursion/Self%20Notes/image%20copy.png)
+![subsequence](/Recursion/Self%20Notes/image%20copy%202.png)
+![subsequence](/Recursion/Self%20Notes/image%20copy%203.png)
+
+you need to stop as soon as base condition arrives which means that when i>=n, you need to stop
+
+at each step you have two choices, either you can include the element or you can exclude the element, this also called as `power set` of the string
+
+__there are two methods to print all of these subsequences, first is power set method and second is recursion method__
 
 __recursive method__ -> 
 - base case -> if the string is empty then return the output
@@ -294,26 +299,36 @@ __recursive method__ ->
     - if we include the first element of the string
     - if we exclude the first element of the string
 
+
+_Note_ the number of sequences from a string of length `n` is `2^n`
+
 __code solution__
 ```cpp
 #include <bits/stdc++.h>
 using namespace std;
-void printSubsequence(string input, string output){
-    // base case
-    if(input.length() == 0){
-        cout<<output<<endl;
+
+void printSubsequence(string str, string& output, int i){
+    // Base case: when the index is out of bounds, stop
+    if(i == str.length()){
+        cout << output << endl;
         return;
     }
-    // recursive case
-    printSubsequence(input.substr(1), output+input[0]);
-    printSubsequence(input.substr(1), output);
+
+    // Two options: include the current character or exclude it
+    // Exclude
+    printSubsequence(str, output, i+1); // Exclude the current character and move forward
+
+    // Include
+    output.push_back(str[i]); // Include the current character
+    printSubsequence(str, output, i+1); // Move forward
+    output.pop_back(); // Remove the last character for the next iteration
 }
+
 int main(){
-    string input;
-    cout<<"Enter the string"<<endl;
-    cin>>input;
+    string str = "abc";
     string output = "";
-    printSubsequence(input, output);
+    int i = 0;
+    printSubsequence(str, output, i);
     return 0;
 }
 ```
