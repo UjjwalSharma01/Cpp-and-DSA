@@ -1,4 +1,4 @@
-# Recursion
+# Recursion - babbar for basics
 
 ## What is Recursion?
 
@@ -235,6 +235,85 @@ int main(){
     int index = 0;
     bool ans = arraySorted(arr,size,index);
     cout<<ans;
+    return 0;
+}
+```
+
+### Palindrome check in recursion using single pointer
+__Problem Statement__ -> check if the given array or the string is palindrome or not using a single pointer not two pointer approach
+
+__intuition__ -> will initialise the pointer `i` with 0 and to compare the other thing i will use the basic math of `n-i-1` to point to the equavalent position from the end 
+Stopping condition, if(i<=n/2), kyuki median element ke dono side ke element check krne h
+
+__solution code__
+
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+
+bool palindromeCheck(string arr, int size, int i){
+    if(i >= size/2){
+        return true;
+    }
+    if(arr[i] != arr[size-i-1]){
+        return false;
+    }
+    return palindromeCheck(arr, size, i+1);
+}
+
+int main(){
+    cout << "Enter the size of the string" << endl;
+    int n;
+    cin >> n;
+    string arr;
+    cout << "Enter the string" << endl;
+    cin >> arr;
+    cout << "Printing before palindrome check " << endl;
+    cout << arr << endl;
+    cout << "Calling the palindromeCheck function" << endl;
+    int index = 0;
+    int size  = n;
+    bool ans = palindromeCheck(arr, size, index);
+    cout << (ans ? "True" : "False");
+    return 0;
+}
+```
+
+## Print Subsequence
+what is subsequence? -> subsequence is a contagious or non contagious part of the string which follows a pattern or order
+![subsequence](/Recursion/Self%20Notes/image%20copy.png)
+![subsequence](/Recursion/Self%20Notes/image%20copy%202.png)
+
+it should follow the order in the sense-> that the order of the elements should be same as the original string or array
+
+__there are teo methods to print all of these subsequences, first is power set method and second is recursion method__
+
+__recursive method__ -> 
+- base case -> if the string is empty then return the output
+- recursive case -> 
+    - if we include the first element of the string
+    - if we exclude the first element of the string
+
+__code solution__
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+void printSubsequence(string input, string output){
+    // base case
+    if(input.length() == 0){
+        cout<<output<<endl;
+        return;
+    }
+    // recursive case
+    printSubsequence(input.substr(1), output+input[0]);
+    printSubsequence(input.substr(1), output);
+}
+int main(){
+    string input;
+    cout<<"Enter the string"<<endl;
+    cin>>input;
+    string output = "";
+    printSubsequence(input, output);
     return 0;
 }
 ```
