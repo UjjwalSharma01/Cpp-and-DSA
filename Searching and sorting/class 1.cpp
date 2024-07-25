@@ -2,7 +2,7 @@
 #include <vector>
 using namespace std;
 
-// agr 1000 elements ka array h toh usko binary search se usme se koi element nikalne main worst case main __1000__ iterations krni pdegi kyuki time compelexity h O(n) and binary search same task ko 10 ierations main krdegi
+// agr 1000 elements ka array h toh usko Linear search se usme se koi element nikalne main worst case main __1000__ iterations krni pdegi kyuki time compelexity h O(n) and binary search same task ko 10 ierations main krdegi
 
 // how O(n) -> earch for loop has to run n times for any given condition till n {nested for loop ki time complexity n^2 hogi}
 

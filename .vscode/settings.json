@@ -73,5 +73,6 @@
   "C_Cpp_Runner.useLeakSanitizer": false,
   "C_Cpp_Runner.showCompilationTime": false,
   "C_Cpp_Runner.useLinkTimeOptimization": false,
-  "terminal.integrated.fontFamily": "MesloLGS NF"
+  "terminal.integrated.fontFamily": "MesloLGS NF",
+  "editor.fontSize": 18
 }
