@@ -82,11 +82,47 @@ Types of Questions in binary search
 2. Questions based on search space (you know ki ans is range m aeega and that range is sorted)
 3. you need to do obervation in the index.
 
+## Observation and test case
+{1,1,2,2,3,3,4,4,3,5,5}
+0,1,2,3,4,5,6,7,8,9,10 ->indexes
+
+
+### Observations
+
+initially on the left side of our ans which in this case is 3 because 3 is repeated odd times 
+
+when we se at the left side of this number we see a pattern in the placement of the pair
+
+the first digit in the pair is always at even position (considering zero as even in this case)
+the second digit in the pair is always at the odd position
+
+so this scenario was till we encountered the our ans okkay
+
+now let's observe the pattern to the right od thr index 5
+
+on the left side the pattern was like
+
+__earlier__
+first digit of pair -> even index
+second digit of pair -> odd index
+
+
+__now__
+
+first digit of pair -> odd index
+second digit of pair -> even index
 
 
 
+one last thing to observe
 
 
+our ans will always accur at even index
+
+## Code
+```cpp
+
+```
 
 */
 
@@ -113,6 +149,33 @@ int sortSearch(vector<int> v, int size, int target){
         mid = start+(end-start)/2;
     }
     return -1; //when not found
+}
+
+int oddNumber(vector<int> v, int size) {
+    int start = 0;
+    int end = size - 1;
+    int mid = start + (end - start) / 2;
+    int ans = -1;
+
+    while (start <= mid) {
+        if (mid % 2 == 0) {
+            if (v[mid] == v[mid + 1]) { // means we are on the left side
+                // we need to move to the right
+                start = mid + 2; // mid+1 isiliye nahi because we have already checked it
+            } else {
+                ans = mid; // ho skta h yahi ans ho cz our ans also lies in the even place
+            }
+        } else if (mid % 2 != 0) { // that means odd
+            if (v[mid] == v[mid - 1]) { // that means still we are on the left side
+                // need to go to the right side
+                start = mid + 1;
+            } else {
+                // we might already in the right side moving to left 
+                end = mid - 1;
+            }
+        }
+        mid = start + (end - start) / 2;
+    }
 }
 
 int division(int dividend, int divisor) {
