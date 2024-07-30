@@ -284,7 +284,68 @@ void deleteFromPos(node* &head, int pos){
 }
 ```
 
-# Circular Linked List
+
+# Porblems
+
+## Reverse the `k` Nodes
+
+__Problem__ : Given a linked list, reverse the nodes of a linked list k at a time and return its modified list.
+
+k is a positive integer. If the number of nodes is not a multiple of k then left-out nodes in the end should remain as it is.
+
+if the nodes in the linked list is less than the value of `k` then don't reverse that part and return the list as it is
+
+### Approach
+1. First we will calculate the size of the linked list to check if we have appropriate number of nodes to reverse, if not we will return the head as it is
+2. if we have sufficient number of codes we will reverse the first k given string in that scene after reversing our linkedlist will look something like this
+
+__example__
+LinkedList = 1 2 3 4 5 6 and k =2
+
+```
+after the first pass
+|2|->|1|->|3|->|4|->|5|->|6|
+```
+previous pointer will be pointing too 2 and the or the curr pointer will be at 1 and next will be at 3
+
+again we will check if the next is equal to `nullptr` or not if not we will give the recursive call
+
+![reverseKNodes]()
 
 
+### Code
 
+```cpp
+    int size = sizeOfList(head);
+    if (k > size) {
+        return head;
+    }
+
+    node* curr = head;
+    node* next = nullptr;
+    node* prev = nullptr;
+    int count = 0;
+
+    // Reverse first k nodes of the linked list
+    while (curr != nullptr && count < k) {
+        next = curr->next;
+        curr->next = prev;
+        prev = curr;
+        curr = next;
+        count++;
+    }
+
+    // Now next points to (k+1)th node
+    // Recursively call for the list starting from current
+    // And make rest of the list as next of first node
+    if (next != nullptr) {
+        head->next = reverseKNodes(next, k);
+    }
+
+    // prev is now head of the input list
+    return prev;
+}
+```
+
+
+## Detect a loop in the linked list
