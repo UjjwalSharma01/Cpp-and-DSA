@@ -83,3 +83,11 @@
 
 // pass by reference 
 // pass by pointer
+
+
+#include <iostream>
+using namespace std;
+int main(){
+    cout<<8000+3000+2000-1000-700-600+600-1000+2000+2000+3000+4000+2000+1000+1000+1000+1000+1800-1700-300-1000-220-40;
+    return 0;
+}

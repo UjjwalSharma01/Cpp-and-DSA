@@ -65,5 +65,226 @@ how it looks like
     head <-> 1 <-> 2 <-> 3 <-> 4 <-> 5 <-> head
 ```
 
+# Note ( some hacks and important things)
+
+agr loop ki condition `node!= null` hogi then we will reach till the out of the linkedlist once the loop is over 
+
+if the condition is `node->next != null` then we will reach till the last node
+
+whenever we need to make a node NULL we will equate it to NULL or the NULLED Node, if you want just the link to be NULL then you need to do `node->next = NULL`
+
+Don't forget to update the temp pointer in the Loop
+
+Whenever you need to make any changes pass the head by reference
+
+## Creation of the LinkedList
+```cpp
+void createNode(node*& head, int n) {
+    int count = 1;
+    while (count <= n) {
+        int val;
+        cout << "Enter the value for node " << count << endl;
+        cin >> val;
+        node* newNode = new node(val);
+        if (head == nullptr) {
+            head = newNode;
+        } else {
+            node* temp = head;
+            while (temp->next != nullptr) {
+                temp = temp->next;
+            }
+            temp->next = newNode;
+        }
+        count++;
+    }
+}
+```
+## Traversal of the LinkedList
+```cpp
+void printList(node* head) {
+    if (head == nullptr) {
+        cout << "Can't print, the list is empty" << endl;
+        return;
+    }
+    node* temp = head;
+    while (temp != nullptr) {
+        cout << temp->val << " ";
+        temp = temp->next;
+    }
+    cout << endl;
+}
+```
+## Insertion at the beginning
+```cpp
+void insertInBeginning (node* &head, int n){
+    // if we want to insert a new node in the beginning
+    node* temp = head;
+    node* newNode = new node(n);
+    head = newNode;
+    newNode-> next = temp;
+}
+```
+## Insertion at the end
+```cpp
+void insertAtEnd(node* head, int n){
+    node* temp =head;
+    node* newNode =  new node(n);
+    while(temp!=nullptr){
+        temp = temp->next;
+    }
+        temp->next = newNode;
+}
+```
+## Insertion at a given position
+```cpp
+void insertAtPos(node* &head, int pos, int value){
+    int count = 1;
+    node* temp = head;
+    node* next;
+    node* newNode = new node(value);
+    while(count != pos){ // iterate till the position given
+    temp = temp->next;
+    count ++;
+    }
+    next = temp->next;
+    newNode-> next = next;
+    temp->next = newNode;
+}
+```
+## Deletion at the beginning
+```cpp
+void deleteFromPos(node* &head, int pos){
+    node* temp;
+    node* prev;
+    int count = 1;
+    temp = head;
+    while(count!=pos){
+        prev = temp;
+        temp = temp->next;
+    }
+    prev->next = temp->next;
+
+}
+```
+# Doubly Linked List
+
+## Creation of the node
+```cpp
+class node{
+    public:
+    int val;
+    node* prev;
+    node* next;
+
+    node(int x){
+        this->val = x;
+        this->prev = nullptr;
+        this->next = nullptr;
+    }
+
+};
+```
+## Creation of the Doubly Linked List
+```cpp
+void createNode(node* &head, int n){
+    int count = 1;
+    node* temp;
+    while(count!=n){
+        int val;
+        cout<<"Enter the value for "<<count<<" node"<<endl;
+        cin>>val;
+        node* newNode = new node(val);
+        if(head == nullptr){
+            head = newNode;
+        }else{
+            temp = head;
+            while(temp->next!=nullptr){
+                temp = temp->next;
+            }
+            temp->next = newNode;
+            newNode->prev = temp;
+        }
+        count++;
+    }
+}
+```
+## Traversal of the Doubly Linked List
+```cpp
+void printList(node* head){
+    if(head == nullptr){
+        cout<<"The list is empty"<<endl;
+        return;
+    }
+    node* temp = head;
+    while(temp!=nullptr){
+        cout<<temp->val<<" ";
+        temp = temp->next;
+    }
+    cout<<endl;
+}
+```
+## Insertion at the beginning
+```cpp
+void insertInBeginning(node* &head, int val ){
+    node* newNode = new node(val);
+
+    newNode->next = head;
+    head ->prev = newNode;
+    head = newNode;
+}
+```
+## Insertion at the end
+```cpp
+void insertAtEnd(node* &head, int val){
+    node* newNode = new node(val);
+    node* temp;
+    temp = head;
+    while(temp->next != nullptr){
+        temp = temp->next;
+    }
+    newNode->prev = temp;
+    temp -> next = newNode;
+}
+```
+## Insertion at a given position
+```cpp
+void insertAtPos(node* &head, int pos, int val){
+    int count = 1;
+    node* temp = head;
+    node* next;
+    node* newNode = new node(val);
+    while(count != pos){
+        temp = temp->next;
+        next = temp->next;
+        count++;
+    }
+    newNode->prev = temp;
+    newNode->next = next;
+    temp->next = newNode;
+
+}
+```
+## Delete from position
+```cpp
+void deleteFromPos(node* &head, int pos){
+    node* temp;
+    node* prev;
+    int count = 1;
+    temp = head;
+    if(head == nullptr){
+        cout<<"Not Possible"<<endl;
+    }
+    while(count != pos){
+        prev = temp;
+        temp = temp->next;
+        count ++;
+    }
+    prev->next = temp->next;
+    temp->next->prev = prev;
+}
+```
+
+# Circular Linked List
+
 
 
