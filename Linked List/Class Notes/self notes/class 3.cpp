@@ -99,6 +99,140 @@ node* reverseKNodes(node* head, int k) {
     return prev;
 }
 
+
+bool detectCycle(node* head){
+    node* slow =head;
+    node* fast= head;
+
+    while(fast!=nullptr && fast->next != nullptr){
+        fast = fast->next->next;
+        slow = slow->next;
+
+        if(slow == fast){
+            return true;
+        }
+    }
+    return false;
+}
+
+node* detectStart(node* head) {
+    // Detecting the starting point of the loop
+    node* slow = head;
+    node* fast = head;
+
+    // Detect if a cycle exists
+    while (fast != nullptr && fast->next != nullptr) {
+        fast = fast->next->next;
+        slow = slow->next;
+
+        if (slow == fast) {
+            // Cycle detected, find the start of the cycle
+            slow = head;
+            while (slow != fast) {
+                slow = slow->next;
+                fast = fast->next;
+            }
+            return slow; // Start of the cycle
+        }
+    }
+
+    return nullptr; // No cycle
+}
+
+
+node* removeDuplicates(node* head) {
+    node* next = nullptr;
+    node* curr = head;
+    while(curr!=nullptr && curr->next !=nullptr){
+        next = curr->next;
+        if(curr->data == next->data){
+            next = next->next;
+            curr->next = next;
+        }else{
+            curr = curr->next;
+        }
+    }
+    return head;
+}
+
+
+
+
+
+node* sortList(node* head) {
+    // create dummy nodes
+    node* zeroHead = new node(-1); // -1 is the dummy value
+    node* zeroTail = zeroHead; // otherwise we need to create temp repeatedly
+
+    node* oneHead = new node(-1);
+    node* oneTail = oneHead; // initially both will be at the same location
+
+    node* twoHead = new node(-1);
+    node* twoTail = twoHead;
+
+    // traverse and then add the nodes to dummy nodes
+    node* curr = head;
+    while (curr != nullptr) {
+        // first create the cases and then handle it
+        if (curr->val == 0) {
+            zeroTail->next = curr;
+            zeroTail = zeroTail->next;
+        } else if (curr->val == 1) {
+            oneTail->next = curr;
+            oneTail = oneTail->next;
+        } else if (curr->val == 2) {
+            twoTail->next = curr;
+            twoTail = twoTail->next;
+        }
+        curr = curr->next;
+    }
+
+    // terminate the lists
+    zeroTail->next = nullptr;
+    oneTail->next = nullptr;
+    twoTail->next = nullptr;
+
+    // remove the dummy values from the dummy nodes
+    zeroHead = zeroHead->next;
+    oneHead = oneHead->next;
+    twoHead = twoHead->next;
+
+    // add up the values
+    // cases possible
+    /*
+    1. zeroHead is NULL
+    2. oneHead is NULL
+    3. twoHead is NULL
+    4. All are NULL
+    */
+    if (zeroHead != nullptr) {
+        head = zeroHead;
+        if (oneHead != nullptr) {
+            zeroTail->next = oneHead;
+            if (twoHead != nullptr) {
+                oneTail->next = twoHead;
+            }
+        } else {
+            zeroTail->next = twoHead;
+        }
+    } else if (oneHead != nullptr) {
+        head = oneHead;
+        if (twoHead != nullptr) {
+            oneTail->next = twoHead;
+        }
+    } else {
+        head = twoHead;
+    }
+
+    return head;
+}
+
+node* addTwoNUmbers(node* head)/{
+    return;
+}
+
+
+
 int main(){
     node* head = nullptr;
     int n;

@@ -143,28 +143,37 @@
 // }
 
 
+// #include <bits/stdc++.h>
+// using namespace std;
+// int solve (int arr[], int target){
+//     if(target == 0) {
+//         return 0;
+//     }
+//     if(target < 0){
+//         return INT_MAX;
+//     }
+
+//     int mini = INT_MAX;
+//     for(int i = 0; i < sizeof(arr)/sizeof(arr[0]); i++){
+//         int temp = solve(arr, target - arr[i]);
+//         if(temp != INT_MAX){
+//             mini = min(mini, temp + 1);
+//         }
+//     }
+//     return mini; // minimum number of coins to make this digit
+// }
+// int main(){
+//     int arr[] = {2,3};
+//     int target = 12;
+//    cout<< solve(arr, target)<<endl;
+//     return 0;
+// }
+
+
+
 #include <bits/stdc++.h>
 using namespace std;
-int solve (int arr[], int target){
-    if(target == 0) {
-        return 0;
-    }
-    if(target < 0){
-        return INT_MAX;
-    }
-
-    int mini = INT_MAX;
-    for(int i = 0; i < sizeof(arr)/sizeof(arr[0]); i++){
-        int temp = solve(arr, target - arr[i]);
-        if(temp != INT_MAX){
-            mini = min(mini, temp + 1);
-        }
-    }
-    return mini; // minimum number of coins to make this digit
-}
 int main(){
-    int arr[] = {2,3};
-    int target = 12;
-   cout<< solve(arr, target)<<endl;
+    cout<<13%10<<endl;
     return 0;
 }

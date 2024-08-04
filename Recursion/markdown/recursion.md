@@ -22,7 +22,7 @@ Recursion, by definition, is when a function calls itself directly or indirectly
 
 3. **Processing (Calculations)**: This is optional and depends on the problem. It's where you perform any necessary computations.
 
-Sure, here's your content formatted in markdown:
+__Note__: we need to use the return statement in the base case, in almost all the cases.
 
 ## RECURSIVE STACK - Visualisation
 
