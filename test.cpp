@@ -171,9 +171,54 @@
 
 
 
+// #include <bits/stdc++.h>
+// using namespace std;
+// int main(){
+//     cout<<13%10<<endl;
+//     return 0;
+// }
+
+
 #include <bits/stdc++.h>
 using namespace std;
+
+void selectionSort (vector<int> & arr, int size){
+    int start = 0;
+    int end = size-1;
+    for(int i=0;i<size-1;i++){
+        // let the minimum element be the arr[i]
+        int minimum = i;
+
+        // check or find the min
+        for(int j = i+1;ij<size;j++)
+        if(arr[j]<arr[i]){
+            minimum = j;
+        }
+        if(minimum != i){
+            swap(arr[i], arr[minimum]);
+        }
+    }
+}
+
+void bubbleSort(int arr[], int size) {
+    for (int i = 0; i < size - 1; i++) {
+        for (int j = 0; j < size - i - 1; j++) {
+            if (arr[j] > arr[j + 1]) {
+                swap(arr[j], arr[j + 1]);
+            }
+        }
+    }
+}
+
 int main(){
-    cout<<13%10<<endl;
+    
+    int size;
+    cout<<"Enter the size of the array"<<endl;
+    cin>>size;
+    vector <int> arr(size);
+    for(int i=0;i<size;i++){
+        arr[i] = rand()%100;
+    }
+
     return 0;
 }
