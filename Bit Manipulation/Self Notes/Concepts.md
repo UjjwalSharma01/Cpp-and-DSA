@@ -302,3 +302,150 @@ int countSetBits(int n) {
     return __builtin_popcount(n);
 }
 ```
+
+## Divide two numbers without using the division operator
+
+### Approach 1
+1. keep subtracting the divisor from the dividend until the dividend is greater than the divisor
+2. keep a count of how many times you have subtracted the divisor from the dividend
+
+```cpp
+int divide(int dividend, int divisor) {
+    int sign = (dividend < 0) ^ (divisor < 0) ? -1 : 1;
+    long long int a = abs(dividend);
+    long long int b = abs(divisor);
+    long long int ans = 0;
+    while (a >= b) {
+        a -= b;
+        ans++;
+    }
+    return sign * ans;
+}
+```
+
+### Approach 2
+![division image](image-7.png)
+
+
+approach
+1. keep subtracting the divisor*2^i from the dividend until the dividend is greater than the divisor
+2. keep a count of how many times you have subtracted the divisor*2^i from the dividend
+3. add the count to the answer
+4. keep doing this until the dividend is greater than the divisor
+5. return the 2^i as the answer
+
+
+```cpp
+
+
+got TLE in this one because i was updating a and b inside second while loop but we need to count only in that loop
+
+```cpp
+
+int division(int a, int b){
+    if(a == b){
+        return 1;
+    }
+    // sign
+    bool sign = false; // positive
+
+    if(a<0 && b>0){
+        sign = true; //negative
+    } else if(a>0 && b<0){
+        sign = true; // negative
+    }
+    a = abs(a);
+    b = abs(b);
+    int ans = 0;
+    // base case
+    while(a>=b){
+        int count = 0;
+
+        while ((b << (count + 1)) <= a) {
+            count++;
+        }
+            // ans = ans + pow(2, count); // can be written as
+            ans = ans + (1<<count);
+            a = a - (b*(1<<count));
+    }
+
+    if (sign == true){
+        ans = -ans;
+    }
+    return ans;
+}
+```
+
+
+
+```cpp
+
+class Solution {
+public:
+    int divide(int dividend, int divisor) {
+        if(dividend==divisor)
+            return 1;
+        bool sign = true;
+        if((dividend<0 && divisor>0) || (divisor<0 && dividend>=0))
+            sign = false;
+        unsigned int n = abs(dividend);
+        unsigned int d = abs(divisor);
+        unsigned int ans = 0;
+        while(n>=d){
+            short count=0;
+            while(n > (d<<(count+1)))
+                count++;
+            ans += (1<<count);
+            n = n - (d*(1<<count));
+        }
+        if(ans == (1<<31) and sign)
+            return INT_MAX;
+        return (sign?(ans):(-1*(ans)));
+    }
+};
+```
+
+
+## Minimum Bit Flips to Convert Number
+
+using xor because it tells us the difference in the bits
+
+```cpp
+class Solution {
+public:
+    int minBitFlips(int start, int goal) {
+        return __builtin_popcount(start^goal);
+    }
+};
+```
+
+### How this will work
+1. if the bits are different, then the xor will be 1
+2. if the bits are same, then the xor will be 0
+3. so, the number of 1s in the xor will be the number of bits that are different and we will count those bits, because bullitin_popcount will count the number of 1s in the xor
+
+
+## Find the element that appears once in an array where every other element appears twice
+
+using xor we can do this
+
+```cpp
+class Solution {
+public:
+    int singleNumber(vector<int>& nums) {
+        int ans = 0;
+        for (int i = 0; i < nums.size(); i++) {
+            ans = ans ^ nums[i];
+        }
+        return ans;
+    }
+};
+```
+
+## Powerset of the given array
+![alt text](image-8.png)
+![alt text](image-9.png)
+![alt text](image-10.png)
+
+
+

@@ -190,7 +190,7 @@ void selectionSort (vector<int> & arr, int size){
         int minimum = i;
 
         // check or find the min
-        for(int j = i+1;ij<size;j++)
+        for(int j = i+1;j<size;j++)
         if(arr[j]<arr[i]){
             minimum = j;
         }
@@ -210,15 +210,23 @@ void bubbleSort(int arr[], int size) {
     }
 }
 
+
+
+
 int main(){
     
-    int size;
-    cout<<"Enter the size of the array"<<endl;
-    cin>>size;
-    vector <int> arr(size);
-    for(int i=0;i<size;i++){
-        arr[i] = rand()%100;
-    }
+    // int size;
+    // cout<<"Enter the size of the array"<<endl;
+    // cin>>size;
+    // vector <int> arr(size);
+    // for(int i=0;i<size;i++){
+    //     arr[i] = rand()%100;
+    // }
+    int a = 12;
+    int b = 2;
 
+    int f = division(a,b);
+
+    cout<<f;
     return 0;
 }
