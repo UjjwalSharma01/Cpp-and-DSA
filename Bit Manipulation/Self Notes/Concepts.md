@@ -447,5 +447,135 @@ public:
 ![alt text](image-9.png)
 ![alt text](image-10.png)
 
+## Find the XOR of the numbers from 1 to n
+
+### brute force approach
+1. Take the number from 1 to n and iterate n times to find the xor
+
+### Optimal
+Observe the pattern
+![alt text](image-11.png)
+![alt text](image-12.png)
+![alt text](image-13.png)
+follow up question from L to R
+![alt text](image-14.png)
+
+
+```cpp
+  int toN(int n) {
+    if (n % 4 == 1) return 1;
+    else if (n % 4 == 2) return n + 1;
+    else if (n % 4 == 3) return 0;
+    else if (n % 4 == 0) return n;
+    return 0; // This line is never reached but added for completeness
+}
+
+int findXOR(int l, int r) {
+    return toN(r) ^ toN(l - 1);
+}
+```
+
+## Implement Power Function
+
+## Optimal approach
+1. if the power is even, then the answer will be x^(n/2) * x^(n/2)
+2. if the power is odd, then the answer will be x * x^(n/2) * x^(n/2)
+
+example
+
+if the n  = 2 and x = 21 
+
+let's initialize the answer as 1
+
+initially the power is odd so what we will do is
+
+**ans = ans * x = 1 * 5 = 5**
+
+now the power is even
+_new problem statement_ -> n = 2 and x = 20
+
+now i can write this as  $${(2^2)^{20/2}}$$
+which becomes $${(4)^{10}} $$
+
+now i need to find n = 4and x = 10
+
+since x is eveb, i can write this as $${(4^2)^{10/2}}$$ and it becomes $${(16)^5}$$ now since 5 is odd we will update our ans 
+
+ans = ans * n = 1*2*16 = 32
+
+now  n = 16 and x = 4
+
+since it is even, i can write this as $${(16^2)^{4/2}}$$ and it becomes $${(256)^2}$$
+
+now since 2 is even, we  can write this as $${(256^2)^{2/2}}$$ and it becomes $${(65536)^1}$$
+
+ans since the power is 1, we will update our ans
+
+ans = ans * n = 32 * 65536 = 2097152
+
+everytime if the power is odd we need to update the ans and it it is even we need to update the n and x
+
+![alt text](image-15.png)
+
+![alt text](image-16.png)
+
+
+if n is negative then we need to return ans = 1/ans
+### Time complexity - O(logn) because everytime we are dividing by 2 in most of the cases
+
+```cpp
+class Solution {
+public:
+    double myPow(double x, int n) {
+        if (x == 0 || x == 1) {
+            return x;
+        }
+
+        long power = n;
+        double ans = 1.0;
+
+        if (power < 0) {
+            x = 1 / x;
+            power = -power;
+        }
+
+        while (power > 0) {
+            if (power % 2 != 0) { // odd
+                ans = ans * x;
+            }
+            x = x * x;
+            power = power / 2;
+        }
+
+        return ans;
+    }
+};
+```
+
+## Print number of divisors of a number
+
+### Approach 1
+1. take the number and then iterate from 1 to n and check if the number is divisible by i
+2. if it is divisible then increment the count
+
+### Approach 2
+1. take the number and then iterate from 1 to sqrt(n) and check if the number is divisible by i
+2. if it is divisible then increment the count by 2 because if i is divisible then n/i will also be divisible
+
+```cpp
+int countDivisors(int n) {
+    int count = 0;
+    for (int i = 1; i <= sqrt(n); i++) {
+        if (n % i == 0) {
+            if (n / i == i) {
+                count++;
+            } else {
+                count += 2;
+            }
+        }
+    }
+    return count;
+}
+```
 
 
