@@ -579,3 +579,24 @@ int countDivisors(int n) {
 ```
 
 
+
+
+## Sieve of Eratosthenes | Prime Numbers Till N
+
+### Brute Force
+![alt text](image-17.png)
+if let's say 2 is the prime number then the multiples of 2 will not be prime numbers 
+
+examples
+
+1. 2 -> 4, 6, 8, 10, 12, 14, 16, 18, 20
+same with other numbers, we will mark the multiples of the prime numbers as 0 which indicates that they are not prime numbers 
+![alt text](image-18.png)
+![alt text](image-19.png)
+we will do some precomputation like this and when we need to find the prime numbers till n, we will just check the numbers which are not marked as 0 
+![alt text](image-20.png)
+now let's apply some optimizations here, everytime when i encounter 1 at any index i don't need to make the multiples of it 0 starting from 2*1, i can start from i*i because the numbers before i*i will already be marked as 0 by the prime numbers before i
+![alt text](image-21.png)
+![alt text](image-22.png)
+![alt text](image-23.png)
+![alt text](image-24.png)
