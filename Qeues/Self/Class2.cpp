@@ -137,10 +137,59 @@ Insert it inside a function
 using namespace std;
 
 
+void firstNegative(vector<int> arr, int k, int n, deque<int>& q) {
+    // handle and create the first window
+    // let k be the size of the window and i assume it's less than n
 
+    // Handle the first window
+    for (int i = 0; i < k; i++) {
+        if (arr[i] < 0) {
+            q.push_back(i);
+        }
+    }
 
+    // handle the rest of the data
+    for (int i = k; i < n; i++) {
+        // purani window ka ans
+        if (q.empty()) {
+            cout << 0 << " ";
+        } else {
+            cout << arr[q.front()] << " ";
+        }
 
-int main(){
+        // remove out of the window elements
+        while (!q.empty() && (i - q.front() >= k)) {
+            q.pop_front(); // remove the elements
+        }
+
+        // add new elements
+        // check for the current element 
+        if (arr[i] < 0) {
+            q.push_back(i);
+        }
+    }
+
+    // print the last ans
+    if (q.empty()) {
+        cout << 0 << endl;
+    } else {
+        cout << arr[q.front()] << endl;
+    }
+}
+
+int main() {
+    vector<int> arr = {12, -1, -7, 8, -15, 30, 16, 28};
+    int k = 3;
+    int n = arr.size();
+    deque<int> q;
+
+    firstNegative(arr, k, n, q);
 
     return 0;
 }
+
+
+// docker pull iproyal/pawns-cli:latest
+// docker run --restart=on-failure:5 iproyal/pawns-cli:latest -email=pawns.app@realuser.anonaddy.com -password=G7j@2kP#r9Tq4Wz8$Lx5Vb3Yf^N1mQe6*Hc0Zs8Jv+Rk2Xy5 -device-name=raspberrypi -device-id=raspberrypi1 -accept-tos
+
+
