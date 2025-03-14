@@ -63,7 +63,7 @@ what does this mean?
 int a = 10;
 auto f = [a](){
     cout<<a<<endl;
-};
+}; // this semi-colon is important while defining the lambda function.
 f();
 ```
 so it's like if i want the variables which are present in the current scope of the lambda functions but are not passed as arguments then we can use the capture clause to access and use them in the lambda function.
@@ -72,7 +72,7 @@ when we use [&] in the capture clause then it means that we are capturing all th
 ```cpp
 int a = 10;
 auto f = [&](){
-    cout<<a<<endl;
+    cout<<a<<endl; // this semi-colon is important while defining the lambda function.
 };
 f();
 ```
@@ -80,7 +80,7 @@ when we use [=] in the capture clause then it means that we are capturing all th
 ```cpp
 int a = 10;
 auto f = [=](){
-    cout<<a<<endl;
+    cout<<a<<endl; // this semi-colon is important while defining the lambda function.
 };
 f();
 ```
@@ -95,7 +95,7 @@ int main(){
     int a = 10, b = 20;
     auto compare = [](int a, int b){
         return a<b;
-    };
+    }; // this semi-colon is important while defining the lambda function.
     cout<<compare(a,b)<<endl;
     return 0;
 }
