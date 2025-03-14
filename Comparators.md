@@ -85,6 +85,21 @@ auto f = [=](){
 f();
 ```
 
+using it with the sort function.
+```cpp
+int main(){
+    vector<int> v = {1,2,3,4,5};
+    int a = 10;
+    sort(v.begin(),v.end(),[a](int b, int c){
+        return b<c;
+    }); // don't need to have the semi-colon here after } of lambda function.
+    for(auto x:v){
+        cout<<x<<" ";
+    }
+    return 0;
+}
+``` 
+
 - The parameters are the arguments of the lambda function.
 - The return-type is the return type of the lambda function.
 - The definition of the method is the body of the lambda function.
