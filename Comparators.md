@@ -57,7 +57,34 @@ what's the syntax of the lambda function?
    definition of method  
 }
 ```
-- The capture clause is used to capture variables from the enclosing scope.
+- The capture clause is used to capture variables from the enclosing scope. 
+what does this mean?
+```cpp
+int a = 10;
+auto f = [a](){
+    cout<<a<<endl;
+};
+f();
+```
+so it's like if i want the variables which are present in the current scope of the lambda functions but are not passed as arguments then we can use the capture clause to access and use them in the lambda function.
+
+when we use [&] in the capture clause then it means that we are capturing all the variables by reference.
+```cpp
+int a = 10;
+auto f = [&](){
+    cout<<a<<endl;
+};
+f();
+```
+when we use [=] in the capture clause then it means that we are capturing all the variables by value.
+```cpp
+int a = 10;
+auto f = [=](){
+    cout<<a<<endl;
+};
+f();
+```
+
 - The parameters are the arguments of the lambda function.
 - The return-type is the return type of the lambda function.
 - The definition of the method is the body of the lambda function.
